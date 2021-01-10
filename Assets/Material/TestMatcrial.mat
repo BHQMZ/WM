@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TestMatcrial
-  m_Shader: {fileID: 4800000, guid: 2a7d93b871c7cc64b90a1e81536463da, type: 3}
+  m_Shader: {fileID: 4800000, guid: a1e5c566d8b086a42967a8186ccd5a87, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -25,6 +25,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CheckeredTex:
+        m_Texture: {fileID: 2800000, guid: 65ab52826d24924469e96f400c1e0853, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -63,6 +67,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PlayerCheckeredTex:
+        m_Texture: {fileID: 2800000, guid: 8949d1607f7dc2940971cba9379cac91, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -76,6 +84,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Horizontal: 10
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -84,6 +93,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _Vertical: 10
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.1514774, g: 0.6330002, b: 0.8679245, a: 1}
