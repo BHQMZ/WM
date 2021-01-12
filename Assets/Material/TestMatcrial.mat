@@ -71,6 +71,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 8949d1607f7dc2940971cba9379cac91, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PlayerCheckeredTex1:
+        m_Texture: {fileID: 2800000, guid: 8949d1607f7dc2940971cba9379cac91, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PlayerCheckeredTex2:
+        m_Texture: {fileID: 2800000, guid: a5016d4d225c7114a84ac905087c8690, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,7 +92,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Horizontal: 10
+    - _Horizontal: 7
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -93,7 +101,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _Vertical: 10
+    - _Vertical: 7
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.1514774, g: 0.6330002, b: 0.8679245, a: 1}
