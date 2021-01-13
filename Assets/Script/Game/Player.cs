@@ -7,7 +7,7 @@ public class Player
     int _money = 30;
     int _buyCount = 30;
     string _shaderName = "";
-    List<Vector4> checks = new List<Vector4>();
+    public List<Vector4> checks = new List<Vector4>();
 
     /// <summary>
     /// 金币数
