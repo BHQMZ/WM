@@ -7,7 +7,7 @@ public class Player
     int _money = 30;
     int _buyCount = 30;
     string _shaderName = "";
-    public List<Vector4> checks = new List<Vector4>();
+    private List<Vector2> _checksRecord = new List<Vector2>();
 
     /// <summary>
     /// 金币数
@@ -60,14 +60,23 @@ public class Player
     /// <param name="vs"></param>
     public void SetChecks(int[] vs)
     {
-        checks.Clear();
+        _checksRecord.Clear();
         if (vs.Length >= 2)
         {
             for (int i = 0; i < vs.Length; i+=2)
             {
-                checks.Add(new Vector4(vs[i], vs[i + 1]));
+                _checksRecord.Add(new Vector2(vs[i], vs[i + 1]));
             }
         }
+    }
+
+    /// <summary>
+    /// 获取格子的获取记录
+    /// </summary>
+    /// <returns></returns>
+    public List<Vector2> GetChecks()
+    {
+        return this._checksRecord;
     }
 
     /// <summary>
@@ -75,9 +84,9 @@ public class Player
     /// </summary>
     /// <param name="check1"></param>
     /// <param name="check2"></param>
-    public void BuyChecks(Vector4 check1, Vector4 check2)
+    public void BuyChecks(Vector2 check1, Vector2 check2)
     {
-        checks.Add(check1);
-        checks.Add(check2);
+        _checksRecord.Add(check1);
+        _checksRecord.Add(check2);
     }
 }
