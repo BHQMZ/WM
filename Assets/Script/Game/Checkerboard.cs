@@ -6,6 +6,10 @@ using UnityEngine.UIElements;
 
 public class Checkerboard : MonoBehaviour
 {
+    public GameObject PieceGameObject;
+
+    Piece piece;
+
     Material material;
 
     // 回合数
@@ -18,6 +22,7 @@ public class Checkerboard : MonoBehaviour
 
     void Start()
     {
+        piece = PieceGameObject.GetComponent<Piece>();
         material = gameObject.GetComponent<Renderer>().material;
 
         Player player1 = new Player();
