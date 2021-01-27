@@ -13,4 +13,9 @@ public class Piece : MonoBehaviour
     {
         
     }
+
+    public void SetCheckerboard(CheckerboardVO checkerboard)
+    {
+
+    }
 }
