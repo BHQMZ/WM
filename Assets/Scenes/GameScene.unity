@@ -2036,7 +2036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b28fed43cfaf534ebf2aff26d1dc3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PieceGameObject: {fileID: 561726305}
+  piece: {fileID: 561726307}
+  material: {fileID: 2100000, guid: a4bd188feb1970447a95c5fef9fa6708, type: 2}
 --- !u!114 &2121683214
 MonoBehaviour:
   m_ObjectHideFlags: 0

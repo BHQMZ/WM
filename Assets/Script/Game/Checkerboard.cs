@@ -6,11 +6,9 @@ using UnityEngine.UIElements;
 
 public class Checkerboard : MonoBehaviour
 {
-    public GameObject PieceGameObject;
+    public Piece piece;
 
-    Piece piece;
-
-    Material material;
+    public Material material;
 
     // 回合数
     int round = 0;
@@ -18,25 +16,25 @@ public class Checkerboard : MonoBehaviour
     // 当前轮到的玩家
     int playerIndex = 0;
 
-    List<Player> players = new List<Player>();
+    List<PlayerVO> players = new List<PlayerVO>();
+
+    Ray ray;
 
     void Start()
     {
-        piece = PieceGameObject.GetComponent<Piece>();
-        material = gameObject.GetComponent<Renderer>().material;
+        //material = gameObject.GetComponent<Renderer>().material;
 
-        Player player1 = new Player();
+        PlayerVO player1 = new PlayerVO();
         player1.ShaderName = "_Plyer1";
         players.Add(player1);
 
-        Player player2 = new Player();
+        PlayerVO player2 = new PlayerVO();
         player2.ShaderName = "_Plyer2";
         players.Add(player2);
 
         this.GameStart();
     }
-    Ray ray;
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -52,7 +50,7 @@ public class Checkerboard : MonoBehaviour
 
                 UpdateShaderChecks();
 
-                this.NextPlay();
+                this.TurnEnd();
             }
         }
 
@@ -69,7 +67,18 @@ public class Checkerboard : MonoBehaviour
         round = 1;
     }
 
-    private void NextPlay()
+    /// <summary>
+    /// 回合开始
+    /// </summary>
+    private void TurnStart()
+    {
+
+    }
+
+    /// <summary>
+    /// 回合结束
+    /// </summary>
+    private void TurnEnd()
     {
         playerIndex++;
         if (playerIndex >= players.Count)
@@ -79,6 +88,9 @@ public class Checkerboard : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 更新棋盘上的方格块
+    /// </summary>
     private void UpdateShaderChecks()
     {
         string[,] shaderChecks = new string[7,7];

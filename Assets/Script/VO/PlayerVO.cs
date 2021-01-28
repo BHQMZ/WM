@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player
+public class PlayerVO
 {
     int _money = 30;
     int _buyCount = 30;
@@ -55,7 +55,7 @@ public class Player
     }
 
     /// <summary>
-    /// 设置格子
+    /// 设置格子记录
     /// </summary>
     /// <param name="vs"></param>
     public void SetChecks(int[] vs)
