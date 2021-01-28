@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlayerVO
 {
-    int _money = 30;
-    int _buyCount = 30;
-    string _shaderName = "";
-    private List<Vector2> _checksRecord = new List<Vector2>();
+    #region field
+    private int money = 30;
+
+    private int buyCount = 30;
+
+    private string shaderName = "";
+
+    private List<Vector2> checksRecord = new List<Vector2>();
+    #endregion
+
+    #region properity
 
     /// <summary>
     /// 金币数
@@ -16,11 +23,11 @@ public class PlayerVO
     {
         get
         {
-            return _money;
+            return money;
         }
         set
         {
-            _money = value;
+            money = value;
         }
     }
 
@@ -31,11 +38,11 @@ public class PlayerVO
     {
         get
         {
-            return _buyCount;
+            return buyCount;
         }
         set
         {
-            _buyCount = value;
+            buyCount = value;
         }
     }
 
@@ -46,11 +53,23 @@ public class PlayerVO
     {
         get
         {
-            return _shaderName;
+            return shaderName;
         }
         set
         {
-            _shaderName = value;
+            shaderName = value;
+        }
+    }
+
+    /// <summary>
+    /// 格子的获取记录
+    /// </summary>
+    /// <returns></returns>
+    public List<Vector2> ChecksRecord
+    {
+        get
+        {
+            return checksRecord;
         }
     }
 
@@ -60,23 +79,14 @@ public class PlayerVO
     /// <param name="vs"></param>
     public void SetChecks(int[] vs)
     {
-        _checksRecord.Clear();
+        checksRecord.Clear();
         if (vs.Length >= 2)
         {
-            for (int i = 0; i < vs.Length; i+=2)
+            for (int i = 0; i < vs.Length; i += 2)
             {
-                _checksRecord.Add(new Vector2(vs[i], vs[i + 1]));
+                checksRecord.Add(new Vector2(vs[i], vs[i + 1]));
             }
         }
-    }
-
-    /// <summary>
-    /// 获取格子的获取记录
-    /// </summary>
-    /// <returns></returns>
-    public List<Vector2> GetChecks()
-    {
-        return this._checksRecord;
     }
 
     /// <summary>
@@ -86,7 +96,9 @@ public class PlayerVO
     /// <param name="check2"></param>
     public void BuyChecks(Vector2 check1, Vector2 check2)
     {
-        _checksRecord.Add(check1);
-        _checksRecord.Add(check2);
+        checksRecord.Add(check1);
+        checksRecord.Add(check2);
     }
+
+    #endregion
 }

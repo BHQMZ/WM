@@ -54,7 +54,7 @@ public class Checkerboard : MonoBehaviour
             }
         }
 
-        
+
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow);
 
     }
@@ -93,15 +93,15 @@ public class Checkerboard : MonoBehaviour
     /// </summary>
     private void UpdateShaderChecks()
     {
-        string[,] shaderChecks = new string[7,7];
+        string[,] shaderChecks = new string[7, 7];
 
         for (int i = 0; i < round * 2; i++)
         {
             players.ForEach(p =>
             {
-                if(p.GetChecks().Count > i)
+                if (p.ChecksRecord.Count > i)
                 {
-                    Vector2 check = p.GetChecks()[i];
+                    Vector2 check = p.ChecksRecord[i];
                     shaderChecks[(int)check.x, (int)check.y] = p.ShaderName;
                 }
             });
@@ -109,7 +109,8 @@ public class Checkerboard : MonoBehaviour
 
         Dictionary<string, List<Vector4>> valuePairs = new Dictionary<string, List<Vector4>>();
 
-        players.ForEach(p=> {
+        players.ForEach(p =>
+        {
             valuePairs[p.ShaderName] = new List<Vector4>();
         });
 
@@ -119,17 +120,18 @@ public class Checkerboard : MonoBehaviour
             {
                 string pName = shaderChecks[i, j];
 
-                if(pName != null)
+                if (pName != null)
                 {
                     valuePairs[pName].Add(new Vector4(i + 1, j + 1));
                 }
             }
         }
 
-        players.ForEach(p => {
+        players.ForEach(p =>
+        {
             Vector4[] vector = new Vector4[49];
 
-            valuePairs[p.ShaderName].ToArray().CopyTo(vector,0);
+            valuePairs[p.ShaderName].ToArray().CopyTo(vector, 0);
 
             material.SetVectorArray(p.ShaderName, vector);
         });
