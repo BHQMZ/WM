@@ -32,7 +32,17 @@ public class Checkerboard : MonoBehaviour
         player2.ShaderName = "_Plyer2";
         players.Add(player2);
 
-        this.GameStart();
+        GameStart();
+    }
+
+    void OnDisable()
+    {
+        players.ForEach(p =>
+        {
+            Vector4[] vector = new Vector4[49];
+
+            material.SetVectorArray(p.ShaderName, vector);
+        });
     }
 
     void Update()

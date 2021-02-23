@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using XLua;
 
 //用于执行各种需要在主线程中才能执行的回调
 public class GameProcess : MonoBehaviour
@@ -11,9 +12,11 @@ public class GameProcess : MonoBehaviour
     private static List<CoroutineInfo> CoroutineList = new List<CoroutineInfo>();
     private List<CoroutineInfo> RemoveList = new List<CoroutineInfo>();
 
+    public static LuaEnv Luaenv;
+
     void Awake()
     {
-        SetStartCoroutine(AssetBundleManager.LoadStart(),true, ()=> { return AssetBundleManager.IsLoad; });
+        SetStartCoroutine(AssetBundleManager.LoadStart(), true, ()=> { return AssetBundleManager.IsLoad; });
         SetStartCoroutine(GameObjectManager.LoadStart(), true, () => { return GameObjectManager.IsLoad; });
         SetStartCoroutine(WebRequestManager.WebRequestStart(), true, () => { return WebRequestManager.IsRequest; });
         SetStartCoroutine(LoadSceneManager.LoadStart(), false, () => { return LoadSceneManager.IsLoad; });
@@ -21,7 +24,8 @@ public class GameProcess : MonoBehaviour
 
     void Start()
     {
-
+        GameLua.Init();
+        GameLua.EnterLuaGame();
     }
 
     void OnDisable()

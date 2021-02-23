@@ -29,7 +29,12 @@ public class EventDispatcher
 
     public void Once(string type, Action<object> action)
     {
-        On(type, action);
+        Action<object> act = (object obj) =>
+        {
+            action?.Invoke(obj);
+            //Off(type,act);
+        };
+        On(type, act);
     }
 
     public void Off(string type, Action<object> action)
