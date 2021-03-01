@@ -59,6 +59,7 @@ public class GameModeSelectUI : MonoBehaviour
 
     private void _LinkFail()
     {
-        loadingText.text = "连接服务器失败";
+        loadingText.text = "";
+        Alert.Show("连接服务器失败");
     }
 }

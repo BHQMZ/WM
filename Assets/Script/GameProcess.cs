@@ -43,7 +43,7 @@ public class GameProcess : MonoBehaviour
                 {
                     RemoveList.Add(info);
                 }
-                StartCoroutine(info.enumerator.Invoke());
+                StartCoroutine(info.enumerator());
             }
         });
 
