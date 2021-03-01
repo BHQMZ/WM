@@ -8,7 +8,7 @@ using XLua;
 //用于执行各种需要在主线程中才能执行的回调
 public class GameProcess : MonoBehaviour
 {
-    private class CoroutineInfo { public IEnumerator enumerator; public bool isLoop = false; public Func<bool> func = null; };
+    private class CoroutineInfo { public Func<IEnumerator> enumerator; public bool isLoop = false; public Func<bool> func = null; };
     private static List<CoroutineInfo> CoroutineList = new List<CoroutineInfo>();
     private List<CoroutineInfo> RemoveList = new List<CoroutineInfo>();
 
@@ -16,10 +16,10 @@ public class GameProcess : MonoBehaviour
 
     void Awake()
     {
-        SetStartCoroutine(AssetBundleManager.LoadStart(), true, ()=> { return AssetBundleManager.IsLoad; });
-        SetStartCoroutine(GameObjectManager.LoadStart(), true, () => { return GameObjectManager.IsLoad; });
-        SetStartCoroutine(WebRequestManager.WebRequestStart(), true, () => { return WebRequestManager.IsRequest; });
-        SetStartCoroutine(LoadSceneManager.LoadStart(), false, () => { return LoadSceneManager.IsLoad; });
+        SetStartCoroutine(AssetBundleManager.LoadStart, true, ()=> { return AssetBundleManager.IsLoad; });
+        SetStartCoroutine(GameObjectManager.LoadStart, true, () => { return GameObjectManager.IsLoad; });
+        SetStartCoroutine(WebRequestManager.WebRequestStart, true, () => { return WebRequestManager.IsRequest; });
+        SetStartCoroutine(LoadSceneManager.LoadStart, false, () => { return LoadSceneManager.IsLoad; });
     }
 
     void Start()
@@ -43,7 +43,7 @@ public class GameProcess : MonoBehaviour
                 {
                     RemoveList.Add(info);
                 }
-                StartCoroutine(info.enumerator);
+                StartCoroutine(info.enumerator.Invoke());
             }
         });
 
@@ -64,7 +64,7 @@ public class GameProcess : MonoBehaviour
     /// <param name="enumerator"></param>
     /// <param name="isLoop">是否循环</param>
     /// <param name="func">根据条件判断是否启动</param>
-    public static void SetStartCoroutine(IEnumerator enumerator, bool isLoop = false, Func<bool> func = null)
+    public static void SetStartCoroutine(Func<IEnumerator> enumerator, bool isLoop = false, Func<bool> func = null)
     {
         CoroutineList.Add(new CoroutineInfo() { enumerator = enumerator, isLoop = isLoop, func = func });
     }
