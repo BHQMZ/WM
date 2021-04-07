@@ -4,41 +4,61 @@ using System.Collections.Generic;
 
 public class EventDispatcher
 {
-    private Dictionary<string, Action<object>> events = new Dictionary<string, Action<object>>();
+    private Dictionary<string, Action<object>> onEvents = new Dictionary<string, Action<object>>();
+    private Dictionary<string, Action<object>> onceEvents = new Dictionary<string, Action<object>>();
 
-    public Dictionary<string, Action<object>> EventList
+    public void Event(string type, object data)
     {
-        get
+        if (onEvents.ContainsKey(type))
         {
-            return events;
+            onEvents[type]?.Invoke(data);
         }
-    }
-
-    protected void Event(string type, object data)
-    {
-        events[type]?.Invoke(data);
+        if (onceEvents.ContainsKey(type))
+        {
+            onceEvents[type]?.Invoke(data);
+            onceEvents[type] = null;
+        }
     }
 
     public void On(string type, Action<object> action)
     {
-        //防止重复添加
-        Off(type, action);
-
-        events[type] += action;
+        if(onEvents.ContainsKey(type))
+        {
+            onEvents[type] += action;
+        }
+        else
+        {
+            onEvents[type] = action;
+        }
     }
 
     public void Once(string type, Action<object> action)
     {
-        Action<object> act = (object obj) =>
+        if (onceEvents.ContainsKey(type))
         {
-            action?.Invoke(obj);
-            //Off(type,act);
-        };
-        On(type, act);
+            onceEvents[type] += action;
+        }
+        else
+        {
+            onceEvents[type] = action;
+        }
     }
 
     public void Off(string type, Action<object> action)
     {
-        events[type] -= action;
+        if (onEvents.ContainsKey(type))
+        {
+            onEvents[type] -= action;
+        }
+        if (onceEvents.ContainsKey(type))
+        {
+            onceEvents[type] -= action;
+        }
+    }
+
+    public void OffAll()
+    {
+        onEvents.Clear();
+        onceEvents.Clear();
     }
 }

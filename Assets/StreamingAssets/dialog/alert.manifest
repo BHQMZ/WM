@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3558454909
+CRC: 877662639
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 07aa4abd0bb202a9b8114c7ce835d230
+    Hash: ad011c4cd18f5471ad582dca6ca70ee6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0461bbb7f614ce75f219a316fc7b1a03
@@ -35,6 +35,7 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Dialog/Alert.prefab
 Dependencies: []

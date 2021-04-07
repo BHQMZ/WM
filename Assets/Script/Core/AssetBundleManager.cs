@@ -40,7 +40,7 @@ public class AssetBundleManager {
 
     private static bool IsWebRequest(string url)
     {
-        return url.IndexOf("http://") == 0 || url.IndexOf("https://") == 0 || url.IndexOf("file:///") == 0;
+        return url.IndexOf("http://") == 0 || url.IndexOf("https://") == 0 || url.IndexOf("file://") == 0;
     }
 
     /// <summary>
@@ -62,10 +62,8 @@ public class AssetBundleManager {
     {
         if(manifest == null)
         {
-            Load("AssetBundles", (ab) => {
+            Load("StandaloneWindows", (ab) => {
                 manifest = ab.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
-
-                ab.Unload(false);
 
                 completeAction?.Invoke(manifest);
             });

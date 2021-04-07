@@ -1,0 +1,49 @@
+ManifestFileVersion: 0
+CRC: 108747496
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9e78922cc423ee193c9075acef41d502
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 29ed3249239226965806f978160442a2
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: c2466a247d80f694687e09b173e79936, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5754d1dd7bf522844b9399e675cd759e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 85dd776e6b30e97458634fe175db35dd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f8b4a9e0b6909045aa33cc47f549a57, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Game/Tarot/Prefab/Card.prefab
+Dependencies: []

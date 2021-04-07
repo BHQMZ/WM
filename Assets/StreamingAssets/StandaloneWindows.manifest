@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 2867926968
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: dialog/alert
+      Dependencies: {}
+    Info_1:
+      Name: prefab/card
+      Dependencies: {}
