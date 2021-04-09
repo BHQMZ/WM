@@ -6,6 +6,8 @@ public class TableTop : MonoBehaviour
 {
     public Group group;
 
+    public Transform showCardNode;
+
     public List<Transform> CardArray; 
 
     //抽取的卡牌
@@ -14,6 +16,7 @@ public class TableTop : MonoBehaviour
     void Start()
     {
         EventManager.On("DrawCard", onDrawCard);
+        EventManager.On("ShowCard", onShowCard);
     }
     void Update()
     {
@@ -25,6 +28,13 @@ public class TableTop : MonoBehaviour
         Draw((int)index);
     }
 
+    private void onShowCard(object obj) 
+    {
+        CardCollider card = (CardCollider)obj;
+
+        ShowCardDialog.Show(card, showCardNode);
+    }
+
     public void Draw(int index)
     {
         if (drawList.Count < CardArray.Count)
@@ -32,22 +42,20 @@ public class TableTop : MonoBehaviour
             Card card = group.Draw(index);
             if (card)
             {
-                card.transform.SetParent(transform, true);
-
                 drawList.Add(card);
 
-                MoveToCardArray(card, drawList.Count - 1);
+                Transform t = CardArray[drawList.Count - 1];
+
+                card.Draw(()=> {
+                    card.transform.SetParent(transform, true);
+
+                    card.DrawMoveTo(t.position);
+                });
             }
             else
             {
                 Debug.Log("当前位置没有可抽取卡牌");
             }
         }
-    }
-
-    private void MoveToCardArray(Card card, int index)
-    {
-        Transform t = CardArray[index];
-        card.Draw(t.position);
     }
 }

@@ -7,8 +7,6 @@ public class Group : MonoBehaviour
     //测试用
     //public Card TestCard;
 
-    public Hand hand;
-
     //卡组
     private List<Card> cardList = new List<Card>();
 
@@ -38,12 +36,13 @@ public class Group : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (hand)
-        {
-            hand.SetHand(cardList);
 
-            collider.enabled = false;
+        foreach (Card card in cardList)
+        {
+            card.SpreadOut();
         }
+
+        collider.enabled = false;
     }
 
     public void ShuffleCards()
@@ -94,7 +93,7 @@ public class Group : MonoBehaviour
             cardList.Remove(card);
 
             //抽取后需要更新卡组卡牌堆叠位置
-            UpdateGroup();
+            //UpdateGroup();
 
             CardVO vo = card.dataSource;
 

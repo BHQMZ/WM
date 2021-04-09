@@ -28,7 +28,7 @@ public class DialogBase<T> : DialogBase where T : DialogBase
                 {
                     _instance = Instantiate(dialog).GetComponent<T>();
 
-                    DestroyImmediate(dialog, true);
+                    //DestroyImmediate(dialog, true);
 
                     DialogManager.Show(_instance);
 

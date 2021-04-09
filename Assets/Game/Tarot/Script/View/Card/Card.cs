@@ -156,8 +156,6 @@ public class Card : MonoBehaviour
     {
         dataSource.index = index;
 
-        dataSource.state = CARD_STATE.NOT_EXTRACT;
-
         isReversed = UnityEngine.Random.Range(0f, 1f) >= 0.5;
 
         ResetCard();
@@ -165,16 +163,23 @@ public class Card : MonoBehaviour
 
     public void ResetCard()
     {
+        cardCollider.ResetState();
+
         transform.localEulerAngles = Vector3.zero;
     }
 
-    public void Draw(Vector3 position)
+    public void Draw(Action onComplete = null)
     {
-        cardCollider.Draw(position);
+        cardCollider.Draw(onComplete);
     }
 
-    public void MoveToHand()
+    public void DrawMoveTo(Vector3 position)
     {
-        cardCollider.MoveToHand(dataSource.index);
+        cardCollider.DrawMoveTo(position);
+    }
+
+    public void SpreadOut()
+    {
+        cardCollider.SpreadOut(dataSource.index,cardView.meshSize);
     }
 }

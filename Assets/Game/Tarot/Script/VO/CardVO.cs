@@ -12,9 +12,9 @@ public enum CARD_STATE
     /// </summary>
     NULL = 0,
     /// <summary>
-    /// 未抽取的状态（存在于卡组中）
+    /// 可抽取的状态（手牌中）
     /// </summary>
-    NOT_EXTRACT = 1,
+    EXTRACT = 1,
     /// <summary>
     /// 未翻开的状态（抽取后未翻转）
     /// </summary>
@@ -24,9 +24,9 @@ public enum CARD_STATE
     /// </summary>
     OPEN = 3,
     /// <summary>
-    /// 选中状态（展示状态）
+    /// 显示状态（展示状态）
     /// </summary>
-    SELECT = 4,
+    SHOW = 4,
 }
 
 public class CardVO : EventDispatcher

@@ -30,8 +30,17 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
     {
         switch ((string)tag)
         {
+            case "SpreadOut":
+                _dataSource.state = CARD_STATE.EXTRACT;
+                break;
             case "DrawMoveTo":
-                state = CARD_STATE.NOT_OPEN;
+                _dataSource.state = CARD_STATE.NOT_OPEN;
+                break;
+            case "ShowCard":
+
+                break;
+            case "HideCard":
+                _dataSource.state = CARD_STATE.OPEN;
                 break;
         }
     }
@@ -64,14 +73,17 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
     {
         switch (state)
         {
-            case CARD_STATE.NOT_EXTRACT:
+            case CARD_STATE.EXTRACT:
                 EventManager.Event("DrawCard", _dataSource.index);
                 break;
             case CARD_STATE.NOT_OPEN:
-                state = CARD_STATE.OPEN;
+                _dataSource.state = CARD_STATE.OPEN;
                 cardAni.Turn();
                 break;
             case CARD_STATE.OPEN:
+                EventManager.Event("ShowCard", this);
+                break;
+            case CARD_STATE.SHOW:
 
                 break;
             default:
@@ -80,56 +92,94 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void Draw(Vector3 position)
+    public void ResetState()
+    {
+        _dataSource.state = CARD_STATE.NULL;
+    }
+
+    public void Draw(Action onComplete = null)
     {
         Vector3 d = transform.TransformPoint(new Vector3(0,0.4f,0));
-        cardAni.MoveTo(d, "Draw");
+        cardAni.MoveTo(d, "Draw",new iTweenParameter() { 
+            time = 0.5f,
+        });
+        cardAni.RotateTo(Vector3.zero, "", new iTweenParameter()
+        {
+            time = 0.2f,
+            delay = 0.2f,
+            islocal = true,
+        });
         cardAni.Once("onComplete", (tag) =>
         {
             if ((string)tag == "Draw")
             {
-                cardAni.MoveTo(position, "DrawMoveTo");
+                onComplete?.Invoke();
             }
         });
     }
 
-    public void MoveToHand(int index)
+    public void DrawMoveTo(Vector3 position)
     {
-        float a = 1;
-        float b = 0.5f;
+        cardAni.MoveTo(position, "DrawMoveTo", new iTweenParameter()
+        {
+            speed = 1,
+        });
+    }
 
-        int count = (Card.AllCard.Length + 2) / 2;
+    //摊开
+    public void SpreadOut(int index, Vector3 meshSize)
+    {
 
-        float x = 0;
+        int count = Card.AllCard.Length;
+
+        float interval = 1.4f / count;
+
+        float x = (index - count) * interval;
         float y = 0;
 
-        if (index >= count)
-        {
-            x = (count * 2 - index - count / 2) * (a * 2 / (count));
-            y = (float)-Math.Pow((1 - x * x / (a * a)) * b * b, 0.5);
-        }
-        else
-        {
-            x = (index - count / 2) * (a * 2 / (count));
-            y = (float)Math.Pow((1 - x * x / (a * a)) * b * b, 0.5);
-        }
-        //x²/ a² +y ²/ b²= 1;
+        double r = Math.Atan2(meshSize.z, interval);
 
-        if (index > 19.5f)
+        if (index != count)
         {
-            Debug.Log("111");
+            y = (float)(Math.Sin(r) * (meshSize.x / 2));
         }
 
-        Vector3 vector = transform.parent.TransformPoint(new Vector3(x, 0.001f*(index-1), y));
+        Vector3 vector = transform.parent.TransformPoint(new Vector3(x, 0, - y));
 
-        cardAni.MoveTo(vector,"",new MoveToParameter() { 
-            delay = 0.01f * (index - 1),
+        cardAni.MoveTo(vector, "SpreadOut", new iTweenParameter() {
+            speed = 1,
+            //delay = 0.01f * (index - 1),
             //looktarget = Vector3.zero,
             //axis = "y",
             //up = -Vector3.forward,
         });
 
+        if (index != count)
+        {
+            cardAni.RotateAdd(new Vector3(0, (float)(r * 180 / Math.PI), 0), "", new iTweenParameter()
+            {
+                //delay = 0.01f * (index - 1)
+            });
+        }
+    }
 
-        //cardAni.RotateTo(Vector3.zero);
+    public void RotateTo(Vector3 eulerAngles)
+    {
+        cardAni.RotateTo(eulerAngles);
+    }
+
+    public void Show(Vector3 position, Vector3 eulerAngles, Vector3 lossyScale)
+    {
+        _dataSource.state = CARD_STATE.SHOW;
+        cardAni.MoveTo(position, "ShowCard");
+        cardAni.RotateTo(eulerAngles);
+        cardAni.ScaleTo(lossyScale);
+    }
+
+    public void Hide(Vector3 position, Vector3 eulerAngles, Vector3 lossyScale)
+    {
+        cardAni.MoveTo(position , "HideCard");
+        cardAni.RotateTo(eulerAngles);
+        cardAni.ScaleTo(lossyScale);
     }
 }

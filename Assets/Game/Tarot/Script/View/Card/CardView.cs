@@ -9,11 +9,17 @@ public class CardView : MonoBehaviour
     private Material frontMaterial;
     private Material backMaterial;
 
+    public Vector3 meshSize;
+
     void Start()
     {
         Material[] materials = GetComponent<Renderer>().materials;
         backMaterial = materials[0];
         frontMaterial = materials[2];
+
+        Vector3 bounds = GetComponent<MeshFilter>().mesh.bounds.size;
+
+        meshSize = new Vector3(bounds.x * transform.localScale.x, bounds.y * transform.localScale.y, bounds.z * transform.localScale.z);
     }
 
     void Update()

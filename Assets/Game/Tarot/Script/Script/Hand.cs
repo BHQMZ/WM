@@ -22,7 +22,7 @@ public class Hand : MonoBehaviour
 
             card.transform.SetParent(transform, true);
 
-            card.MoveToHand();
+            //card.SpreadOut();
         }
     }
 }

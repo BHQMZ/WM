@@ -1,35 +1,25 @@
 ManifestFileVersion: 0
-CRC: 2162711798
+CRC: 953739556
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d2aa10e61007f8106dc6b0286bba1c71
+    Hash: 563cbaf8735b4ad1c35be21b240a4238
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0461bbb7f614ce75f219a316fc7b1a03
+    Hash: a119b0c792b56bb8985d0ecfa011ffdd
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
-- Class: 21
-  Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
-- Class: 48
-  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: fbb45284d55404f47be87be3e0dd158a, type: 3}
+  Script: {fileID: 11500000, guid: c1d691776501a0c478bcd14beb07580b, type: 3}
 - Class: 115
-  Script: {instanceID: 0}
-- Class: 128
-  Script: {instanceID: 0}
-- Class: 213
   Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
@@ -37,5 +27,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Dialog/Alert.prefab
+- Assets/Game/Tarot/Dialog/ShowCardDialog.prefab
 Dependencies: []
