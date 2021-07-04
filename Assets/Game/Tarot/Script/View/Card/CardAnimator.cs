@@ -14,6 +14,8 @@ public class iTweenParameter
     public Vector3 up = Vector3.up;
     public string axis;
     public bool islocal = false;
+    public iTween.LoopType looptype;
+    public iTween.EaseType easetype = iTween.EaseType.easeOutExpo;
 }
 
 public class CardAnimator : MonoBehaviour
@@ -69,9 +71,9 @@ public class CardAnimator : MonoBehaviour
             args.Add("onstarttarget", gameObject);
             args.Add("onstartparams", tag);
 
-            //args.Add("onupdate", "onTweenComplete");
-            //args.Add("onupdatetarget", gameObject);
-            //args.Add("onupdateparams", tag);
+            args.Add("onupdate", "onTweenUpdate");
+            args.Add("onupdatetarget", gameObject);
+            args.Add("onupdateparams", tag);
 
             args.Add("oncomplete", "onTweenComplete");
             args.Add("oncompletetarget", gameObject);
@@ -84,6 +86,8 @@ public class CardAnimator : MonoBehaviour
             if (parameter.speed != 0) args.Add("speed", parameter.speed);
 
             args.Add("delay", parameter.delay);
+            args.Add("looptype", parameter.looptype);
+            args.Add("easetype", parameter.easetype);
 
             if (parameter.isLooktarget)
             {
@@ -112,6 +116,21 @@ public class CardAnimator : MonoBehaviour
     private void onTweenComplete(string tag)
     {
         dispatcher.Event("onComplete", tag);
+    }
+
+    private void onTweenUpdate(string tag)
+    {
+        dispatcher.Event("onUpdate", tag);
+    }
+
+    public void MoveTo(Vector3[] path, string tag = "", iTweenParameter parameter = null)
+    {
+
+        Hashtable args = createTweenHashtable(tag, parameter);
+
+        args.Add("path", path);
+
+        iTween.MoveTo(gameObject, args);
     }
 
     public void MoveTo(Vector3 target,string tag = "", iTweenParameter parameter = null)

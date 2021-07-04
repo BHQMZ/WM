@@ -19,6 +19,7 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         cardAni.On("onComplete", onAniComplete);
+        cardAni.On("onUpdate", onAniUpdate);
     }
 
     void Update()
@@ -41,6 +42,19 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
                 break;
             case "HideCard":
                 _dataSource.state = CARD_STATE.OPEN;
+                break;
+        }
+    }
+
+    private void onAniUpdate(object tag)
+    {
+        switch ((string)tag)
+        {
+            case "Float":
+                transform.LookAt(transform.parent);
+                Vector3 vector = transform.localEulerAngles;
+                vector.y = 90;
+                transform.localEulerAngles = vector;
                 break;
         }
     }
@@ -127,26 +141,10 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
     }
 
     //摊开
-    public void SpreadOut(int index, Vector3 meshSize)
+    public void SpreadOut(Vector3 position, Vector3 rotation)
     {
 
-        int count = Card.AllCard.Length;
-
-        float interval = 1.4f / count;
-
-        float x = (index - count) * interval;
-        float y = 0;
-
-        double r = Math.Atan2(meshSize.z, interval);
-
-        if (index != count)
-        {
-            y = (float)(Math.Sin(r) * (meshSize.x / 2));
-        }
-
-        Vector3 vector = transform.parent.TransformPoint(new Vector3(x, 0, - y));
-
-        cardAni.MoveTo(vector, "SpreadOut", new iTweenParameter() {
+        cardAni.MoveTo(position, "SpreadOut", new iTweenParameter() {
             speed = 1,
             //delay = 0.01f * (index - 1),
             //looktarget = Vector3.zero,
@@ -154,13 +152,10 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
             //up = -Vector3.forward,
         });
 
-        if (index != count)
+        cardAni.RotateAdd(rotation, "", new iTweenParameter()
         {
-            cardAni.RotateAdd(new Vector3(0, (float)(r * 180 / Math.PI), 0), "", new iTweenParameter()
-            {
-                //delay = 0.01f * (index - 1)
-            });
-        }
+            //delay = 0.01f * (index - 1)
+        });
     }
 
     public void RotateTo(Vector3 eulerAngles)
@@ -181,5 +176,19 @@ public class CardCollider : MonoBehaviour, IPointerClickHandler
         cardAni.MoveTo(position , "HideCard");
         cardAni.RotateTo(eulerAngles);
         cardAni.ScaleTo(lossyScale);
+    }
+
+    public void Float(Vector3 lookTarget,Vector3[] path)
+    {
+        transform.position = path[0];
+        cardAni.MoveTo(path, "Float", new iTweenParameter()
+        {
+            looptype = iTween.LoopType.loop,
+            easetype = iTween.EaseType.linear,
+
+            time = 2,
+
+            //islocal = true,
+        });
     }
 }

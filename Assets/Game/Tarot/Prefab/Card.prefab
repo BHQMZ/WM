@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardView: {fileID: 1912000517430669649}
   cardCollider: {fileID: 6494054514236408552}
+  rotateNode: {fileID: 5317752269627387491}
 --- !u!114 &6494054514236408552
 MonoBehaviour:
   m_ObjectHideFlags: 0

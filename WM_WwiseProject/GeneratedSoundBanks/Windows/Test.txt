@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1151520883	Play_PREL_SSFX_MUSICAL_PO01_218_L			\Default Work Unit\Play_PREL_SSFX_MUSICAL_PO01_218_L	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	343739740	PREL_SSFX_MUSICAL_PO01_218_L	D:\Unity\WM\WM_WwiseProject\.cache\Windows\SFX\PREL_SSFX_MUSICAL_PO01.218.L_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\PREL_SSFX_MUSICAL_PO01_218_L\PREL_SSFX_MUSICAL_PO01_218_L		1056064
+

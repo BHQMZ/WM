@@ -180,6 +180,45 @@ public class Card : MonoBehaviour
 
     public void SpreadOut()
     {
-        cardCollider.SpreadOut(dataSource.index,cardView.meshSize);
+        int count = Card.AllCard.Length;
+        int index = dataSource.index;
+        Vector3 meshSize = cardView.meshSize;
+
+        float interval = 1.4f / count;
+
+        float x = (index - count) * interval;
+        float y = 0;
+
+        double r = 0;
+
+        if (index != count)
+        {
+            r = Math.Atan2(meshSize.z, interval);
+
+            y = (float)(Math.Sin(r) * (meshSize.x / 2));
+        }
+
+        Vector3 position = transform.parent.TransformPoint(new Vector3(x, 0, -y));
+        Vector3 rotation = new Vector3(0, (float)(r * 180 / Math.PI), 0);
+
+        cardCollider.SpreadOut(position, rotation);
+    }
+
+    public void Float(Transform targetT)
+    {
+        transform.SetParent(targetT, true);
+
+        Vector3[] circlePath = GameUtils.DrawCircle(Vector3.zero,0.5f,0.001f);
+
+        Vector3[] path = new Vector3[circlePath.Length + 1];
+
+        for (int i = 0; i < circlePath.Length; i++)
+        {
+            path[i] = targetT.TransformPoint(circlePath[i]);
+        }
+
+        path[circlePath.Length] = path[0];
+
+        cardCollider.Float(Vector3.zero, path);
     }
 }
