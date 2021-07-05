@@ -20,6 +20,15 @@ public class GameProcess : MonoBehaviour
         SetStartCoroutine(GameObjectManager.LoadStart, true, () => { return GameObjectManager.IsLoad; });
         SetStartCoroutine(WebRequestManager.WebRequestStart, true, () => { return WebRequestManager.IsRequest; });
         SetStartCoroutine(LoadSceneManager.LoadStart, false, () => { return LoadSceneManager.IsLoad; });
+
+        SetStartCoroutine(Timer.TimeStart, true, () => { return Timer.IsTime; });
+
+        //Timer.One(.1f, () => {
+        //    Debug.Log("One");
+        //});
+        //Timer.Loop(.1f, ()=> {
+        //    Debug.Log("Loop");
+        //});
     }
 
     void Start()

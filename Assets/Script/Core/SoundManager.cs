@@ -57,7 +57,7 @@ public class SoundManager : SingletonClass<SoundManager>
         }
 
         //做了一个0.1秒延迟
-        ToolKit.DelayCall(.1f, InitCompoent);
+        Timer.One(.1f, InitCompoent);
 
     }
 
