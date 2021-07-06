@@ -29,6 +29,10 @@ public class GameProcess : MonoBehaviour
         //Timer.Loop(.1f, ()=> {
         //    Debug.Log("Loop");
         //});
+
+        //Log.Info(Environment.CurrentDirectory + @"\WM_WwiseProject\GeneratedSoundBanks\Windows\");
+        SoundManager.Instance.Init();
+        //SoundManager.Instance.PlayBGMSound(1151520883);
     }
 
     void Start()

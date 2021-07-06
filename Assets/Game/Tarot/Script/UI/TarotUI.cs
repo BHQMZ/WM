@@ -20,9 +20,10 @@ public class TarotUI : MonoBehaviour
     }
     public void onButtonClick()
     {
-        if (text.text!="")
-        {
-            tableTop.Draw(int.Parse(text.text));
-        }
+        //if (text.text!="")
+        //{
+        //    tableTop.Draw(int.Parse(text.text));
+        //}
+        SoundManager.Instance.PlayBGMSound(1151520883);
     }
 }

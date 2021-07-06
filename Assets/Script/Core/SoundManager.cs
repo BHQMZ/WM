@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class SoundManager : SingletonClass<SoundManager>
 {
@@ -30,7 +31,6 @@ public class SoundManager : SingletonClass<SoundManager>
     private List<string> m_LoadBankList = new List<string>();
 
     public void Init()
-
     {
         //初始化AkInitializer 加载AkWwiseInitializationSettings
         global = new GameObject("Wwise Global");
@@ -46,7 +46,6 @@ public class SoundManager : SingletonClass<SoundManager>
         object settingObj = Resources.Load("AkWwiseInitializationSettings");
 
         if (settingObj != null)
-
         {
             AkWwiseInitializationSettings settings = settingObj as AkWwiseInitializationSettings;
 
@@ -62,14 +61,12 @@ public class SoundManager : SingletonClass<SoundManager>
     }
 
     private void InitCompoent()
-
     {
         //首先需要设置一个LoadBank的路径,否则API不知道该从哪里load bank
         //PathManager管理不同平台 iOS Android Windows
         AKRESULT result = AkSoundEngine.SetBasePath(PathManager.WwiseFilePath());
 
-        if(result != AKRESULT.AK_Success)
-
+        if (result != AKRESULT.AK_Success)
         {
             Log.Error("不存在此音频路径");
 
@@ -108,68 +105,56 @@ public class SoundManager : SingletonClass<SoundManager>
     }
 
     private void InitSound()
-
     {
-        IsPlayBGM = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Int_BGM_Open) ? (LocalDataSave.Instance.GetIntData(LocalDataSave.Instance.Int_BGM_Open) == 1) : true;
+        //IsPlayBGM = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Int_BGM_Open) ? (LocalDataSave.Instance.GetIntData(LocalDataSave.Instance.Int_BGM_Open) == 1) : true;
+        IsPlayBGM = true;
 
-        float volume = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Float_BGM_Volume) ? LocalDataSave.Instance.GetFloatData(LocalDataSave.Instance.Float_BGM_Volume) : 1;
+        //float volume = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Float_BGM_Volume) ? LocalDataSave.Instance.GetFloatData(LocalDataSave.Instance.Float_BGM_Volume) : 1;
+        float volume = 1;
 
         float val = IsPlayBGM ? volume : 0;
 
         SoundVolumeBGM = val;
 
-        //Log.Error(IsPlayBGM.ToString());
+        //IsPlayBGM = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Int_SE_Open) ? (LocalDataSave.Instance.GetIntData(LocalDataSave.Instance.Int_SE_Open) == 1) : true;
+        IsPlayBGM = true;
 
-        IsPlayBGM = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Int_SE_Open) ? (LocalDataSave.Instance.GetIntData(LocalDataSave.Instance.Int_SE_Open) == 1) : true;
-
-        volume = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Float_SE_Volume) ? LocalDataSave.Instance.GetFloatData(LocalDataSave.Instance.Float_SE_Volume) : 1;
+        //volume = LocalDataSave.Instance.HasKey(LocalDataSave.Instance.Float_SE_Volume) ? LocalDataSave.Instance.GetFloatData(LocalDataSave.Instance.Float_SE_Volume) : 1;
+        volume = 1;
 
         val = IsPlaySE ? volume : 0;
 
         SoundVolumeSE = val;
-
-        //Log.Error(IsPlaySE.ToString());
-
     }
 
     public float SoundVolumeBGM
-
     {
         set
-
         {
             _SoundVolumeBGM = value;
 
             AkSoundEngine.SetGameObjectOutputBusVolume(listenerBGM, listenerBGM, value);
-
         }
 
         get
-
         {
             return _SoundVolumeBGM;
-
         }
 
     }
 
     public float SoundVolumeSE
-
     {
         set
-
         {
             _SoundVolumeSE = value;
 
             AkSoundEngine.SetGameObjectOutputBusVolume(listenerSE, listenerSE, value);
-
         }
 
         get
-
         {
             return _SoundVolumeSE;
-
         }
 
     }
@@ -177,27 +162,21 @@ public class SoundManager : SingletonClass<SoundManager>
     #region 解析xml
 
     private void InitXML()
-
     {
-        WWW www = new WWW(PathManager.WwiseFilePath() + "SoundbanksInfo.xml");
-
-        while (!www.isDone)
-
-        {
-        }
-
-        if (string.IsNullOrEmpty(www.error))
-
-        {
+        UnityWebRequest request = UnityWebRequest.Get(PathManager.WwiseFilePath() + "SoundbanksInfo.xml");
+        //DownloadHandlerBuffer Download = new DownloadHandlerBuffer();
+        //request.downloadHandler = Download;
+        WebRequestManager.Request(request, (wr)=> {
             XmlDocument XmlDoc = new XmlDocument();
 
-            XmlDoc.LoadXml(www.text);
+            //Log.Info(request.downloadHandler.text);
+
+            XmlDoc.LoadXml(request.downloadHandler.text);
 
             //首先获取xml中所有的SoundBank
             XmlNodeList soundBankList = XmlDoc.GetElementsByTagName("SoundBank");
 
             foreach (XmlNode node in soundBankList)
-
             {
                 XmlNode bankNameNode = node.SelectSingleNode("ShortName");
 
@@ -207,7 +186,6 @@ public class SoundManager : SingletonClass<SoundManager>
                 XmlNode eventNode = node.SelectSingleNode("IncludedEvents");
 
                 if (eventNode != null)
-
                 {
                     //拿到其中所有的event做一个映射
                     XmlNodeList eventList = eventNode.SelectNodes("Event");
@@ -216,31 +194,17 @@ public class SoundManager : SingletonClass<SoundManager>
 
                     {
                         m_BankInfoDict.Add(uint.Parse(x1e.Attributes["Id"].Value), bankName);
-
                     }
-
                 }
-
             }
-
-        }
-
-        else
-
-        {
-            Log.Error(www.error);
-
-        }
-
+        });
     }
 
     #endregion
 
     public void ClearLaseBGMSoundID()
-
     {
         lastBGMSoundID = 0;
-
     }
 
     private uint lastBGMSoundID = 0;
@@ -248,41 +212,36 @@ public class SoundManager : SingletonClass<SoundManager>
     private uint bGMPlayingID = 0;
 
     public uint PlayBGMSound(uint soundID, AkCallbackManager.EventCallback AkCallback = null, object cookie = null)
-
     {
         if (listenerBGM == null)
-
         {
             Log.Error("BGM还未初始化");
 
             return 0;
-
         }
 
         LoadSound(soundID);
 
         if (lastBGMSoundID == soundID)
-
         {
             Log.Info("重复播放BGM,id==" + soundID);
 
             return bGMPlayingID;
-
         }
 
         lastBGMSoundID = soundID;
 
         bGMPlayingID = AkSoundEngine.PostEvent(soundID, listenerBGM, 1, AkCallback + AkCallbackBGM, cookie);
 
+        Log.Info("开始播放BGM,id==" + soundID);
+
         return bGMPlayingID;
 
     }
 
     private void AkCallbackBGM(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
-
     {
         lastBGMSoundID = 0;
-
     }
 
     private uint lastSESoundID = 0;
@@ -290,10 +249,8 @@ public class SoundManager : SingletonClass<SoundManager>
     private uint sEPlayingID = 0;
 
     public uint PlaySESound(uint soundID)
-
     {
         if (listenerSE == null)
-
         {
             Log.Error("SE还未初始化");
 
@@ -304,24 +261,21 @@ public class SoundManager : SingletonClass<SoundManager>
         LoadSound(soundID);
 
         if (lastSESoundID == soundID)
-
         {
             Log.Info("重复播放SE,id==" + soundID);
 
             return sEPlayingID;
-
         }
 
         lastSESoundID = soundID;
 
-        sEPlayingID = AkSoundEngine.PostEvent(soundID, listenerSE, 1, AkCallbackSE,null);
+        sEPlayingID = AkSoundEngine.PostEvent(soundID, listenerSE, 1, AkCallbackSE, null);
 
         return sEPlayingID;
 
     }
 
     private void AkCallbackSE(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
-
     {
         lastSESoundID = 0;
 
@@ -330,36 +284,29 @@ public class SoundManager : SingletonClass<SoundManager>
     #region 加载SoundBank
 
     private bool LoadSound(uint soundID)
-
     {
         if (soundID == 0)
-
         {
             Log.Error("soundID不能为0");
 
             return false;
-
         }
 
         string bankName;
 
         if (!m_BankInfoDict.TryGetValue(soundID, out bankName))
-
         {
             Log.Error(string.Format("加载event（{0}）失败,没有找到所属的SoundEvent", soundID));
 
             return false;
-
         }
 
         if (!m_LoadBankList.Contains(bankName))
-
         {
             //加载SoundBank
             AkBankManager.LoadBank(bankName, false, false);
 
             m_LoadBankList.Add(bankName);
-
         }
 
         return true;
@@ -373,12 +320,11 @@ public class SoundManager : SingletonClass<SoundManager>
     /// </summary>
     /// <param name="id"></param> playingid
     /// <param name="dura"></param> duration time
-    public void StopPlayingID(uint id,int dura = 0)
-
+    public void StopPlayingID(uint id, int dura = 0)
     {
         AkSoundEngine.StopPlayingID(id, dura);
 
-        if(id == bGMPlayingID)
+        if (id == bGMPlayingID)
 
         {
             lastBGMSoundID = 0;
@@ -391,11 +337,9 @@ public class SoundManager : SingletonClass<SoundManager>
             lastSESoundID = 0;
 
         }
-
     }
 
     public void StopBMGSound()
-
     {
         AkSoundEngine.StopAll(listenerBGM);
 
@@ -404,7 +348,6 @@ public class SoundManager : SingletonClass<SoundManager>
     }
 
     public void StopSESound()
-
     {
         AkSoundEngine.StopAll(listenerSE);
 
@@ -413,7 +356,6 @@ public class SoundManager : SingletonClass<SoundManager>
     }
 
     public void StopAll()
-
     {
         StopBMGSound();
 
@@ -423,7 +365,6 @@ public class SoundManager : SingletonClass<SoundManager>
 
     //看剧情长短或者篇章考虑下需要不需要清理bank吧
     public void ClearBanks()
-
     {
         AkSoundEngine.ClearBanks();
 
@@ -432,7 +373,6 @@ public class SoundManager : SingletonClass<SoundManager>
         lastBGMSoundID = 0;
 
         lastSESoundID = 0;
-
     }
 
 }
