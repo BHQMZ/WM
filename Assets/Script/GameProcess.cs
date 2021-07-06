@@ -23,12 +23,16 @@ public class GameProcess : MonoBehaviour
 
         SetStartCoroutine(Timer.TimeStart, true, () => { return Timer.IsTime; });
 
-        //Timer.One(.1f, () => {
-        //    Debug.Log("One");
-        //});
-        //Timer.Loop(.1f, ()=> {
+        //Timer.Loop(.1f, () =>
+        //{
         //    Debug.Log("Loop");
-        //});
+        //}, "loop");
+        //Timer.One(.5f, () =>
+        //{
+        //    Debug.Log("One");
+        //}, "one");
+
+        //Timer.Close("loop");
 
         //Log.Info(Environment.CurrentDirectory + @"\WM_WwiseProject\GeneratedSoundBanks\Windows\");
         SoundManager.Instance.Init();
