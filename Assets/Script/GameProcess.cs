@@ -19,7 +19,7 @@ public class GameProcess : MonoBehaviour
         SetStartCoroutine(AssetBundleManager.LoadStart, true, ()=> { return AssetBundleManager.IsLoad; });
         SetStartCoroutine(GameObjectManager.LoadStart, true, () => { return GameObjectManager.IsLoad; });
         SetStartCoroutine(WebRequestManager.WebRequestStart, true, () => { return WebRequestManager.IsRequest; });
-        SetStartCoroutine(LoadSceneManager.LoadStart, false, () => { return LoadSceneManager.IsLoad; });
+        SetStartCoroutine(LoadSceneManager.LoadStart, true, () => { return LoadSceneManager.IsLoad; });
 
         SetStartCoroutine(Timer.TimeStart, true, () => { return Timer.IsTime; });
 
