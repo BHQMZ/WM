@@ -24,6 +24,7 @@ public class TarotUI : MonoBehaviour
         //{
         //    tableTop.Draw(int.Parse(text.text));
         //}
-        SoundManager.Instance.PlayBGMSound(1151520883);
+        uint id = SoundManager.Instance.PlayBGMSound("Play_PREL_SSFX_MUSICAL_PO01_218_L");
+        SoundManager.Instance.StopPlayingID(id, 1);
     }
 }

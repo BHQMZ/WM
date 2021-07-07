@@ -24,8 +24,10 @@ public class SoundManager : SingletonClass<SoundManager>
 
     private GameObject listenerSE;
 
-    //映射表
+    //Bank映射表
     private Dictionary<uint, string> m_BankInfoDict = new Dictionary<uint, string>();
+    //Id映射表
+    private Dictionary<string, uint> m_IdDict = new Dictionary<string, uint>();
 
     //所有bank的List
     private List<string> m_LoadBankList = new List<string>();
@@ -52,7 +54,6 @@ public class SoundManager : SingletonClass<SoundManager>
             akInitializer.InitializationSettings = settings;
 
             global.SetActive(true);
-
         }
 
         //做了一个0.1秒延迟
@@ -182,6 +183,8 @@ public class SoundManager : SingletonClass<SoundManager>
 
                 string bankName = bankNameNode.InnerText;
 
+                Log.Info(bankName);
+
                 //判断SingleNode存在与否,比如Init.bak就没这个
                 XmlNode eventNode = node.SelectSingleNode("IncludedEvents");
 
@@ -194,6 +197,7 @@ public class SoundManager : SingletonClass<SoundManager>
 
                     {
                         m_BankInfoDict.Add(uint.Parse(x1e.Attributes["Id"].Value), bankName);
+                        m_IdDict.Add(x1e.Attributes["Name"].Value, uint.Parse(x1e.Attributes["Id"].Value));
                     }
                 }
             }
@@ -202,14 +206,8 @@ public class SoundManager : SingletonClass<SoundManager>
 
     #endregion
 
-    public void ClearLaseBGMSoundID()
-    {
-        lastBGMSoundID = 0;
-    }
 
-    private uint lastBGMSoundID = 0;
-
-    private uint bGMPlayingID = 0;
+    private List<uint> playingIdList = new List<uint>();
 
     public uint PlayBGMSound(uint soundID, AkCallbackManager.EventCallback AkCallback = null, object cookie = null)
     {
@@ -220,97 +218,81 @@ public class SoundManager : SingletonClass<SoundManager>
             return 0;
         }
 
-        LoadSound(soundID);
-
-        if (lastBGMSoundID == soundID)
-        {
-            Log.Info("重复播放BGM,id==" + soundID);
-
-            return bGMPlayingID;
-        }
-
-        lastBGMSoundID = soundID;
-
-        bGMPlayingID = AkSoundEngine.PostEvent(soundID, listenerBGM, 1, AkCallback + AkCallbackBGM, cookie);
-
-        Log.Info("开始播放BGM,id==" + soundID);
-
-        return bGMPlayingID;
-
-    }
-
-    private void AkCallbackBGM(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
-    {
-        lastBGMSoundID = 0;
-    }
-
-    private uint lastSESoundID = 0;
-
-    private uint sEPlayingID = 0;
-
-    public uint PlaySESound(uint soundID)
-    {
-        if (listenerSE == null)
-        {
-            Log.Error("SE还未初始化");
-
-            return 0;
-
-        }
-
-        LoadSound(soundID);
-
-        if (lastSESoundID == soundID)
-        {
-            Log.Info("重复播放SE,id==" + soundID);
-
-            return sEPlayingID;
-        }
-
-        lastSESoundID = soundID;
-
-        sEPlayingID = AkSoundEngine.PostEvent(soundID, listenerSE, 1, AkCallbackSE, null);
-
-        return sEPlayingID;
-
-    }
-
-    private void AkCallbackSE(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
-    {
-        lastSESoundID = 0;
-
-    }
-
-    #region 加载SoundBank
-
-    private bool LoadSound(uint soundID)
-    {
-        if (soundID == 0)
-        {
-            Log.Error("soundID不能为0");
-
-            return false;
-        }
-
         string bankName;
 
         if (!m_BankInfoDict.TryGetValue(soundID, out bankName))
         {
             Log.Error(string.Format("加载event（{0}）失败,没有找到所属的SoundEvent", soundID));
+        }
+
+        LoadSound(bankName);
+
+        uint id = 0;
+
+        AkCallbackManager.EventCallback AkCallbackBGM = (in_cookie, in_type, in_info) =>
+        {
+            playingIdList.Remove(id);
+            Log.Info(string.Format("播放BGM结束,队列Id:{0}, Id: {1}", id, soundID));
+        };
+
+        id = AkSoundEngine.PostEvent(soundID, listenerBGM, 1, AkCallback + AkCallbackBGM, cookie);
+        playingIdList.Add(id);
+
+        if (id > 0)
+        {
+            Log.Info(string.Format("播放BGM开始,队列Id:{0}, Id: {1}", id, soundID));
+        }
+
+        return id;
+
+    }
+
+    public uint PlayBGMSound(string soundName, AkCallbackManager.EventCallback AkCallback = null, object cookie = null)
+    {
+        if (listenerBGM == null)
+        {
+            Log.Error("BGM还未初始化");
+
+            return 0;
+        }
+
+        uint soundID;
+
+        if (!m_IdDict.TryGetValue(soundName, out soundID))
+        {
+            Log.Error(string.Format("加载event（{0}）失败,没有找到所属的SoundEvent", soundName));
+        }
+
+        uint id = PlayBGMSound(soundID, AkCallback, cookie);
+
+        if (id > 0)
+        {
+            Log.Info(string.Format("播放BGM开始,队列Id:{0}, Name: {1}", id, soundName));
+        }
+
+        return id;
+    }
+
+    #region 加载SoundBank
+
+    private bool LoadSound(string soundName)
+    {
+        if (string.IsNullOrEmpty(soundName))
+        {
+            Log.Error("soundName不能为空");
 
             return false;
         }
 
-        if (!m_LoadBankList.Contains(bankName))
+        if (!m_LoadBankList.Contains(soundName))
         {
             //加载SoundBank
-            AkBankManager.LoadBank(bankName, false, false);
+            AkBankManager.LoadBank(soundName, false, false);
 
-            m_LoadBankList.Add(bankName);
+            m_LoadBankList.Add(soundName);
         }
 
         return true;
-
     }
 
     #endregion
@@ -323,56 +305,11 @@ public class SoundManager : SingletonClass<SoundManager>
     public void StopPlayingID(uint id, int dura = 0)
     {
         AkSoundEngine.StopPlayingID(id, dura);
-
-        if (id == bGMPlayingID)
-
-        {
-            lastBGMSoundID = 0;
-
-        }
-
-        if (id == sEPlayingID)
-
-        {
-            lastSESoundID = 0;
-
-        }
     }
 
     public void StopBMGSound()
     {
         AkSoundEngine.StopAll(listenerBGM);
 
-        lastBGMSoundID = 0;
-
     }
-
-    public void StopSESound()
-    {
-        AkSoundEngine.StopAll(listenerSE);
-
-        lastSESoundID = 0;
-
-    }
-
-    public void StopAll()
-    {
-        StopBMGSound();
-
-        StopSESound();
-
-    }
-
-    //看剧情长短或者篇章考虑下需要不需要清理bank吧
-    public void ClearBanks()
-    {
-        AkSoundEngine.ClearBanks();
-
-        m_LoadBankList.Clear();
-
-        lastBGMSoundID = 0;
-
-        lastSESoundID = 0;
-    }
-
 }
