@@ -14,8 +14,16 @@ public class GameProcess : MonoBehaviour
 
     public static LuaEnv Luaenv;
 
+    public static GameProcess Instance;
+
     void Awake()
     {
+        if (Instance)
+        {
+            return;
+        }
+        Instance = this;
+
         SetStartCoroutine(AssetBundleManager.LoadStart, true, ()=> { return AssetBundleManager.IsLoad; });
         SetStartCoroutine(GameObjectManager.LoadStart, true, () => { return GameObjectManager.IsLoad; });
         SetStartCoroutine(WebRequestManager.WebRequestStart, true, () => { return WebRequestManager.IsRequest; });

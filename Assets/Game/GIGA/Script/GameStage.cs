@@ -17,7 +17,7 @@ public class GameStage : MonoBehaviour
     /// </summary>
     public Track track = null;
 
-    public float speedMultiplier = 1;
+    private float speedMultiplier = 4;
 
     private float progress = 0;
 
@@ -49,6 +49,15 @@ public class GameStage : MonoBehaviour
         UpdateProgress();
     }
 
+    public void Init()
+    {
+        stationLeft.Init();
+        stationRight.Init();
+        track.Init();
+
+        progress = 0;
+    }
+
     private void UpdateProgress()
     {
         float speed = stationRight.gainSpeed - stationLeft.gainSpeed;
@@ -63,9 +72,29 @@ public class GameStage : MonoBehaviour
         }
         progress = Mathf.MoveTowards(progress, target, Mathf.Abs(speed) * speedMultiplier * Time.deltaTime);
 
-        stationRight.progress = progress;
-        stationLeft.progress = -progress;
+        stationRight.isRun = progress == 3;
+
+        stationLeft.isRun = progress == -3;
 
         track.progress = progress;
+    }
+
+    /// <summary>
+    /// 结算数据
+    /// </summary>
+    public void Settlement()
+    {
+        stationLeft.Settlement();
+        stationRight.Settlement();
+        if (stationLeft.IsAdd())
+        {
+            stationLeft.ReduceProfit();
+            stationRight.AddProfit();
+        }
+        if (stationRight.IsAdd())
+        {
+            stationLeft.AddProfit();
+            stationRight.ReduceProfit();
+        }
     }
 }

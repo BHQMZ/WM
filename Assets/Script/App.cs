@@ -22,7 +22,7 @@ public class App : MonoBehaviour
 
     void Start()
     {
-        LoadSceneManager.Switch("Tarot", true);
+        LoadSceneManager.Switch("GameStart");
     }
 
     // Update is called once per frame

@@ -6,6 +6,10 @@ public class DialogUI : MonoBehaviour
 {
     void Awake()
     {
+        if (DialogManager.PresentDialogUI)
+        {
+            return;
+        }
         //将当前启用的弹窗UI设置为PresentDialogUI
         DialogManager.PresentDialogUI = this;
         //默认隐藏

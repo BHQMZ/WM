@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
+    public GameObject selected = null;
+
     /// <summary>
     /// 是否选中
     /// </summary>
-    public bool _isSelected = false;
-    public bool isSelected 
+    private bool _isSelected = false;
+    public bool isSelected
     {
         get
         {
@@ -17,11 +19,12 @@ public class Piece : MonoBehaviour
         set
         {
             _isSelected = value;
+
+            selected.SetActive(value);
         }
     }
 
     private Station _station = null;
-
     public Station station
     {
         set
@@ -38,9 +41,20 @@ public class Piece : MonoBehaviour
         }
     }
 
-    void Update()
+    private Vector3 initialPos;
+
+    void Awake()
     {
-        
+        initialPos = transform.position;
+    }
+
+    public void Init()
+    {
+        transform.position = initialPos;
+
+        isSelected = false;
+
+        _station = null;
     }
 
     public void Enter(Station station)

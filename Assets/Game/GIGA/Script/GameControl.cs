@@ -8,7 +8,20 @@ public class GameControl : MonoBehaviour
     /// <summary>
     ///  时间（倒计时）
     /// </summary>
-    public float time = 30;
+    private float _time = 30;
+
+    public float time 
+    {
+        get
+        {
+            return _time;
+        }
+        set
+        {
+            _time = value;
+            textTime.text = value.ToString();
+        }
+    }
 
     public Text textTime = null;
 
@@ -22,7 +35,9 @@ public class GameControl : MonoBehaviour
 
     void Start()
     {
-        Timer.Loop(1, UpdateTime, "Time");
+        EventManager.On("Init", Init);
+
+        Init(null);
     }
 
     void Update()
@@ -138,24 +153,49 @@ public class GameControl : MonoBehaviour
                 }
             }
         }
-
-        UpdateUI();
     }
 
-    public void UpdateTime()
+    public void Init(object obj)
     {
+        Timer.CloseAll();
+
+        time = 30;
+
+        pieces.ForEach((piece) =>
+        {
+            piece.Init();
+        });
+
+        stageList.ForEach((stage) =>
+        {
+            stage.Init();
+        });
+
+        Timer.Loop(1, MainLoop, "MainLoop");
+    }
+
+    private void MainLoop()
+    {
+        stageList.ForEach((stage) =>
+        {
+            stage.Settlement();
+        });
+
         time -= 1;
+
+        UpdateUI();
+
         if (time <= 0)
         {
             Timer.CloseAll();
             Debug.Log("游戏结束，比分 " + textScoreLeft.text + ":" + textScoreRight.text);
+
+            GameOverUI.Show(float.Parse(textScoreLeft.text), float.Parse(textScoreRight.text));
         }
     }
 
     public void UpdateUI()
     {
-        textTime.text = time.ToString();
-
         float scoreLeft = 0;
         float scoreRight = 0;
         stageList.ForEach((stage) =>
