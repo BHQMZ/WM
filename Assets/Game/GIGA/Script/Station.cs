@@ -13,7 +13,7 @@ public class Station : MonoBehaviour
     /// <summary>
     /// 收益
     /// </summary>
-    private float profit = 10;
+    private float profit = 1;
 
     private float _score = 0;
     public float score
@@ -57,7 +57,7 @@ public class Station : MonoBehaviour
     {
         isRun = false;
 
-        profit = 10;
+        profit = 1;
 
         _gainSpeed = 0;
 

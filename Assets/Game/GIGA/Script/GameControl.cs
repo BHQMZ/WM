@@ -33,6 +33,9 @@ public class GameControl : MonoBehaviour
 
     public List<Piece> pieces = new List<Piece>();
 
+    private int indexLeft = -1;
+    private int indexRight = -1;
+
     void Start()
     {
         EventManager.On("Init", Init);
@@ -42,117 +45,151 @@ public class GameControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            pieces[0].isSelected = true;
-            pieces[1].isSelected = false;
-        }
+        // if (Input.GetKeyDown(KeyCode.J))
+        // {
+        //     pieces[0].isSelected = !pieces[0].isSelected;
+        //     pieces[1].isSelected = !pieces[1].isSelected;
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            pieces[0].isSelected = false;
-            pieces[1].isSelected = true;
-        }
+        // if (Input.GetKeyDown(KeyCode.B))
+        // {
+        //     pieces[0].isSelected = !pieces[0].isSelected;
+        //     pieces[1].isSelected = !pieces[1].isSelected;
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            pieces[2].isSelected = true;
-            pieces[3].isSelected = false;
-        }
+        // if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        // {
+        //     pieces[2].isSelected = !pieces[2].isSelected;
+        //     pieces[3].isSelected = !pieces[3].isSelected;
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            pieces[2].isSelected = false;
-            pieces[3].isSelected = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                if (pieces[i].isSelected)
-                {
-                    pieces[i].station = stageList[0].stationLeft;
-                }
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.RightArrow))
+        // {
+        //     pieces[2].isSelected = !pieces[2].isSelected;
+        //     pieces[3].isSelected = !pieces[3].isSelected;
+        // }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            for (int i = 0; i < 2; i++)
-            {
-                if (pieces[i].isSelected)
+            // for (int i = 0; i < 2; i++)
+            // {
+                Piece piece = pieces[0];
+                if (piece.isSelected)
                 {
-                    pieces[i].station = stageList[1].stationLeft;
+                    if (piece.station == null)
+                    {
+                        piece.station = stageList[3].stationLeft;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < stageList.Count; j++)
+                        {
+                            if(piece.station == stageList[j].stationLeft){
+                                int index = j - 1;
+                                if (index < 0)
+                                {
+                                    index = 3;
+                                }
+                                piece.station = stageList[index].stationLeft;
+                                break;
+                            }
+                        }
+                    }
                 }
-            }
+            // }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            for (int i = 0; i < 2; i++)
-            {
-                if (pieces[i].isSelected)
+            // for (int i = 0; i < 2; i++)
+            // {
+                Piece piece = pieces[0];
+                if (piece.isSelected)
                 {
-                    pieces[i].station = stageList[2].stationLeft;
+                    if (piece.station == null)
+                    {
+                        piece.station = stageList[0].stationLeft;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < stageList.Count; j++)
+                        {
+                            if(piece.station == stageList[j].stationLeft){
+                                int index = j + 1;
+                                if (index > 3)
+                                {
+                                    index = 0;
+                                }
+                                piece.station = stageList[index].stationLeft;
+                                break;
+                            }
+                        }
+                    }
                 }
-            }
+            // }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            for (int i = 0; i < 2; i++)
-            {
-                if (pieces[i].isSelected)
+            // for (int i = 2; i < 4; i++)
+            // {
+                Piece piece = pieces[2];
+                if (piece.isSelected)
                 {
-                    pieces[i].station = stageList[3].stationLeft;
+                    if (piece.station == null)
+                    {
+                        piece.station = stageList[3].stationRight;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < stageList.Count; j++)
+                        {
+                            if(piece.station == stageList[j].stationRight){
+                                int index = j - 1;
+                                if (index < 0)
+                                {
+                                    index = 3;
+                                }
+                                piece.station = stageList[index].stationRight;
+                                break;
+                            }
+                        }
+                    }
                 }
-            }
+            // }
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            for (int i = 2; i < 4; i++)
-            {
-                if (pieces[i].isSelected)
+            // for (int i = 2; i < 4; i++)
+            // {
+                Piece piece = pieces[2];
+                if (piece.isSelected)
                 {
-                    pieces[i].station = stageList[0].stationRight;
+                    if (piece.station == null)
+                    {
+                        piece.station = stageList[0].stationRight;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < stageList.Count; j++)
+                        {
+                            if(piece.station == stageList[j].stationRight){
+                                int index = j + 1;
+                                if (index > 3)
+                                {
+                                    index = 0;
+                                }
+                                piece.station = stageList[index].stationRight;
+
+                                break;
+                            }
+                        }
+                    }
                 }
-            }
+            // }
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            for (int i = 2; i < 4; i++)
-            {
-                if (pieces[i].isSelected)
-                {
-                    pieces[i].station = stageList[1].stationRight;
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            for (int i = 2; i < 4; i++)
-            {
-                if (pieces[i].isSelected)
-                {
-                    pieces[i].station = stageList[2].stationRight;
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            for (int i = 2; i < 4; i++)
-            {
-                if (pieces[i].isSelected)
-                {
-                    pieces[i].station = stageList[3].stationRight;
-                }
-            }
-        }
     }
 
     public void Init(object obj)
@@ -170,6 +207,12 @@ public class GameControl : MonoBehaviour
         {
             stage.Init();
         });
+
+        pieces[0].isSelected = true;
+        pieces[1].isSelected = false;
+
+        pieces[2].isSelected = true;
+        pieces[3].isSelected = false;
 
         Timer.Loop(1, MainLoop, "MainLoop");
     }

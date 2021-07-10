@@ -27,6 +27,10 @@ public class Piece : MonoBehaviour
     private Station _station = null;
     public Station station
     {
+        get
+        {
+            return _station;
+        }
         set
         {
             if (_station != value)

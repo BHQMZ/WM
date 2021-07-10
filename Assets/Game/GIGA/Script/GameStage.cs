@@ -86,15 +86,15 @@ public class GameStage : MonoBehaviour
     {
         stationLeft.Settlement();
         stationRight.Settlement();
-        if (stationLeft.IsAdd())
-        {
-            stationLeft.ReduceProfit();
-            stationRight.AddProfit();
-        }
-        if (stationRight.IsAdd())
-        {
-            stationLeft.AddProfit();
-            stationRight.ReduceProfit();
-        }
+        // if (stationLeft.IsAdd())
+        // {
+        //     stationLeft.ReduceProfit();
+        //     stationRight.AddProfit();
+        // }
+        // if (stationRight.IsAdd())
+        // {
+        //     stationLeft.AddProfit();
+        //     stationRight.ReduceProfit();
+        // }
     }
 }
