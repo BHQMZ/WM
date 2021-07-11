@@ -31,7 +31,7 @@ public class Track : MonoBehaviour
 
     private void UpdateProgress(float progress)
     {
-        transform.position = new Vector3(progress * 1.22f / 3, transform.position.y, transform.position.z);
+        transform.position = new Vector3(progress * 0.62f / 3, transform.position.y, transform.position.z);
     }
 
     public void Init()

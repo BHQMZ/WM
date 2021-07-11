@@ -29,6 +29,12 @@ public class GameOverUI : DialogBase<GameOverUI>
     {
         Hide();
 
+        SoundManager.Instance.PlayBGMSound("SFX_GameAgain");
+        SoundManager.Instance.PlayBGMSound("Stop_AMB");
+        SoundManager.Instance.PlayBGMSound("Stop_BGM");
+        SoundManager.Instance.PlayBGMSound("BGM_LFP_Reset");
+        SoundManager.Instance.PlayBGMSound("AMB_LFP_Reset");
+
         EventManager.Event("Init",null);
     }
 
@@ -38,15 +44,24 @@ public class GameOverUI : DialogBase<GameOverUI>
             if (score1 > score2)
             {
                 alert.title.text = "红方获胜";
+
+                SoundManager.Instance.PlayBGMSound("SFX_GameWin");
             }
             else if(score1 < score2)
             {
                 alert.title.text = "蓝方获胜";
+
+                SoundManager.Instance.PlayBGMSound("SFX_GameWin");
             }
             else
             {
                 alert.title.text = "平局";
+
+                SoundManager.Instance.PlayBGMSound("SFX_GameFail");
             }
+
+            SoundManager.Instance.PlayBGMSound("BGM_LFP");
+            SoundManager.Instance.PlayBGMSound("AMB_LFP");
 
             alert.score.text = score1 + ":" + score2;
         });

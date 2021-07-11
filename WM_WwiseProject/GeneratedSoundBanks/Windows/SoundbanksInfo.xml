@@ -1,35 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\WM\WM_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\WM\WM_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\WM\WM_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\WM\WM_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3690994985">
-			<ObjectPath>Init</ObjectPath>
-			<ShortName>Init</ShortName>
-			<Path>Init.bnk</Path>
-		</SoundBank>
-		<SoundBank Id="3157003241" Language="SFX" Hash="3578092486">
-			<ObjectPath>\SoundBanks\Default Work Unit\Test</ObjectPath>
-			<ShortName>Test</ShortName>
-			<Path>Test.bnk</Path>
+		<SoundBank Id="393239870" Language="SFX" Hash="3887679046">
+			<ObjectPath>\SoundBanks\Default Work Unit\SFX</ObjectPath>
+			<ShortName>SFX</ShortName>
+			<Path>SFX.bnk</Path>
 			<IncludedEvents>
-				<Event Id="1151520883" Name="Play_PREL_SSFX_MUSICAL_PO01_218_L" ObjectPath="\Events\Default Work Unit\Play_PREL_SSFX_MUSICAL_PO01_218_L" DurationType="OneShot" DurationMin="11.000000" DurationMax="11.000000">
+				<Event Id="4110648134" Name="SFX_Double" ObjectPath="\Events\Default Work Unit\SFX\None\SFX_Double" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
 					<IncludedMemoryFiles>
-						<File Id="343739740" Language="SFX">
-							<ShortName>PREL_SSFX_MUSICAL_PO01.218.L.wav</ShortName>
-							<Path>SFX\PREL_SSFX_MUSICAL_PO01.218.L_D79FB2B7.wem</Path>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="4016653061" Name="SFX_GameAgain" ObjectPath="\Events\Default Work Unit\SFX\SFX_GameAgain" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3790700687" Name="SFX_GameFail" ObjectPath="\Events\Default Work Unit\SFX\SFX_GameFail" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2157972787" Name="SFX_GameWin" ObjectPath="\Events\Default Work Unit\SFX\SFX_GameWin" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2093680815" Name="SFX_GomeOver" ObjectPath="\Events\Default Work Unit\SFX\SFX_GomeOver" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="70901724" Name="SFX_Login" ObjectPath="\Events\Default Work Unit\SFX\SFX_Login" DurationType="OneShot" DurationMin="6.168355" DurationMax="6.168355">
+					<IncludedMemoryFiles>
+						<File Id="527378914" Language="SFX">
+							<ShortName>PREL_SSFX_MUSICAL_PO01.218.L.wav</ShortName>
+							<Path>SFX\PREL_SSFX_MUSICAL_PO01.218.L_9CD2F938.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2170046570" Name="SFX_Obtain" ObjectPath="\Events\Default Work Unit\SFX\None\SFX_Obtain" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2651361429" Name="SFX_SetChess" ObjectPath="\Events\Default Work Unit\SFX\None\SFX_SetChess" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="129984678" Name="SFX_TimeOut" ObjectPath="\Events\Default Work Unit\SFX\SFX_TimeOut" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1659614458" Name="SFX_TrainTouch" ObjectPath="\Events\Default Work Unit\SFX\SFX_TrainTouch" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1114964412" Name="Start_Game" ObjectPath="\Events\Default Work Unit\SFX\Start_Game" DurationType="OneShot" DurationMin="0.086009" DurationMax="0.086009">
+					<IncludedMemoryFiles>
+						<File Id="827856512" Language="SFX">
+							<ShortName>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</ShortName>
+							<Path>SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3979125044" Name="Stop_LoginSFX" ObjectPath="\Events\Default Work Unit\SFX\SFX_Action\Stop_LoginSFX" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="412724365" Language="SFX" Hash="2227967792">
+			<ObjectPath>\SoundBanks\Default Work Unit\BGM</ObjectPath>
+			<ShortName>BGM</ShortName>
+			<Path>BGM.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2277337246" Name="BGM_LFP" ObjectPath="\Events\Default Work Unit\BGM\BGM_Action\BGM_LFP" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="965225434" Name="BGM_LFP_Reset" ObjectPath="\Events\Default Work Unit\BGM\BGM_Action\BGM_LFP_Reset" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3657697988" Name="Game_BGM" ObjectPath="\Events\Default Work Unit\BGM\BGM\Game_BGM" DurationType="OneShot" DurationMin="59.319313" DurationMax="59.319313">
+					<IncludedMemoryFiles>
+						<File Id="42493299" Language="SFX">
+							<ShortName>Ode_To_Joy.wav</ShortName>
+							<Path>SFX\Ode_To_Joy_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1073466678" Name="Stop_BGM" ObjectPath="\Events\Default Work Unit\BGM\BGM_Action\Stop_BGM" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1117531639" Language="SFX" Hash="938820454">
+			<ObjectPath>\SoundBanks\Default Work Unit\AMB</ObjectPath>
+			<ShortName>AMB</ShortName>
+			<Path>AMB.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3602804000" Name="AMB_LFP" ObjectPath="\Events\Default Work Unit\AMB\AMB\AMB_LFP" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1952940776" Name="AMB_LFP_Reset" ObjectPath="\Events\Default Work Unit\AMB\AMB\AMB_LFP_Reset" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3652298359" Name="AMB_Sea" ObjectPath="\Events\Default Work Unit\AMB\AMB\AMB_Sea" DurationType="OneShot" DurationMin="24.920666" DurationMax="24.920666">
+					<IncludedMemoryFiles>
+						<File Id="1035728338" Language="SFX">
+							<ShortName>beach_waves_seagull.wav</ShortName>
+							<Path>SFX\beach_waves_seagull_C1F52A07.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="435770000" Name="Stop_AMB" ObjectPath="\Events\Default Work Unit\AMB\AMB_Action\Stop_AMB" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionPostEvent>
+						<ActionPostEventEntry Id="3652298359" Name="AMB_Sea" ObjectPath="\Events\Default Work Unit\AMB\AMB\AMB_Sea"/>
+					</ActionPostEvent>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX" Hash="1188728651">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

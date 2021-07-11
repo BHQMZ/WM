@@ -1,0 +1,9 @@
+Event	ID	Name			Wwise Object Path	Notes
+	965225434	BGM_LFP_Reset			\Default Work Unit\BGM\BGM_Action\BGM_LFP_Reset	
+	1073466678	Stop_BGM			\Default Work Unit\BGM\BGM_Action\Stop_BGM	
+	2277337246	BGM_LFP			\Default Work Unit\BGM\BGM_Action\BGM_LFP	
+	3657697988	Game_BGM			\Default Work Unit\BGM\BGM\Game_BGM	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	42493299	Ode_To_Joy	F:\Study\Game Jam\WM_WwiseProject\.cache\Mac\SFX\Ode_To_Joy_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Game_Music\Ode_To_Joy		11389372
+

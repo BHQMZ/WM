@@ -39,7 +39,20 @@ public class Station : MonoBehaviour
     /// <summary>
     /// 是否运作
     /// </summary>
-    public bool isRun = false;
+    private bool _isRun = false;
+
+    public bool isRun
+    {
+        set
+        {
+            if (_isRun != value)
+            {
+                _isRun = value;
+
+                ChangeRunType();
+            }
+        }
+    }
 
     private List<Piece> pieces = new List<Piece>();
 
@@ -55,7 +68,7 @@ public class Station : MonoBehaviour
 
     public void Init()
     {
-        isRun = false;
+        _isRun = false;
 
         profit = 1;
 
@@ -68,7 +81,7 @@ public class Station : MonoBehaviour
 
     public void Settlement()
     {
-        if (isRun)
+        if (_isRun)
         {
             if (profit > 0)
             {
@@ -79,7 +92,7 @@ public class Station : MonoBehaviour
 
     public bool IsAdd()
     {
-        return isRun && profit > 0;
+        return _isRun && profit > 0;
     }
 
     public void AddProfit()
@@ -139,7 +152,7 @@ public class Station : MonoBehaviour
         Hashtable args = new Hashtable();
 
         args.Add("position", pos);
-        args.Add("time", 0.5);
+        args.Add("time", 0.3);
         args.Add("oncomplete", "onTweenComplete");
         args.Add("oncompletetarget", gameObject);
 
@@ -149,5 +162,17 @@ public class Station : MonoBehaviour
     private void onTweenComplete()
     {
         textAdd.text = "";
+    }
+
+    private void ChangeRunType()
+    {
+        if (_isRun)
+        {
+            Debug.Log("接上");
+        }
+        else
+        {
+            Debug.Log("断开");
+        }
     }
 }
