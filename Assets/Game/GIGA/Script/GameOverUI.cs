@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameOverUI : DialogBase<GameOverUI>
 {
-    public Text title;
+    public List<GameObject> titles = new List<GameObject>();
 
     public Text score;
 
@@ -29,26 +29,45 @@ public class GameOverUI : DialogBase<GameOverUI>
     {
         Hide();
 
+        SoundManager.Instance.PlayBGMSound("SFX_GameAgain");
+        SoundManager.Instance.PlayBGMSound("Stop_AMB");
+        SoundManager.Instance.PlayBGMSound("Stop_BGM");
+        SoundManager.Instance.PlayBGMSound("BGM_LFP_Reset");
+        SoundManager.Instance.PlayBGMSound("AMB_LFP_Reset");
+
         EventManager.Event("Init",null);
     }
 
     public static void Show(float score1, float score2)
     {
         Show((alert) => {
+
+            alert.titles.ForEach((title) => {
+                title.gameObject.SetActive(false);
+            });
             if (score1 > score2)
             {
-                alert.title.text = "红方获胜";
+                alert.titles[0].gameObject.SetActive(true);
+
+                SoundManager.Instance.PlayBGMSound("SFX_GameWin_01");
             }
             else if(score1 < score2)
             {
-                alert.title.text = "蓝方获胜";
+                alert.titles[1].gameObject.SetActive(true);
+
+                SoundManager.Instance.PlayBGMSound("SFX_GameWin_02");
             }
             else
             {
-                alert.title.text = "平局";
+                alert.titles[2].gameObject.SetActive(true);
+
+                SoundManager.Instance.PlayBGMSound("SFX_GameFail");
             }
 
-            alert.score.text = score1 + ":" + score2;
+            SoundManager.Instance.PlayBGMSound("BGM_LFP");
+            SoundManager.Instance.PlayBGMSound("AMB_LFP");
+
+            alert.score.text = "<color=#EF1073>" + score1 + "</color>:<color=#3D1FEE>" + score2 + "</color>";
         });
     }
 }

@@ -56,9 +56,9 @@ public class SoundManager : SingletonClass<SoundManager>
             global.SetActive(true);
         }
 
-        //做了一个0.1秒延迟
-        Timer.One(.1f, InitCompoent);
-
+        // //做了一个0.1秒延迟
+        //Timer.One(.1f, InitCompoent);
+        InitCompoent();
     }
 
     private void InitCompoent()

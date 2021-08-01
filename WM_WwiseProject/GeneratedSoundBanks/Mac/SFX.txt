@@ -1,0 +1,21 @@
+Event	ID	Name			Wwise Object Path	Notes
+	70901724	SFX_Login			\Default Work Unit\SFX\SFX_Login	
+	129984678	SFX_TimeOut			\Default Work Unit\SFX\SFX_TimeOut	
+	728894180	SFX_GameWin_02			\Default Work Unit\SFX\SFX_GameWin_02	
+	728894183	SFX_GameWin_01			\Default Work Unit\SFX\SFX_GameWin_01	
+	1114964412	Start_Game			\Default Work Unit\SFX\Start_Game	
+	1659614458	SFX_TrainTouch			\Default Work Unit\SFX\SFX_TrainTouch	
+	2093680815	SFX_GomeOver			\Default Work Unit\SFX\SFX_GomeOver	
+	3790700687	SFX_GameFail			\Default Work Unit\SFX\SFX_GameFail	
+	4016653061	SFX_GameAgain			\Default Work Unit\SFX\SFX_GameAgain	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	312155688	SFX_TimeOut	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\SFX_TimeOut1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\SFX_TimeOut\SFX_TimeOut		20128
+	363634597	SFX_GameWin_01	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\victory_sound_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\SFX_GameWin_01		1384344
+	527378914	SFX_Login	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\PREL_SSFX_MUSICAL_PO01.218.L_9CD2F938.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\SFX_Login		592226
+	593567549	SFX_GameFail	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\Defeat_Sound_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\SFX_GameFail		671288
+	678192488	SFX_GameWin_02	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\Victory_Sound_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\SFX_GameWin_02		697420
+	790247076	SFX_TrainTouch	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\SFX_TrainTouch_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\SFX_TrainTouch		108572
+	827856512	Start_Game	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Start_Game		15316
+	1042399153	SFX_GomeOver	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Mac\SFX\SFX_GameOver_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\SFX_GomeOver		775664
+

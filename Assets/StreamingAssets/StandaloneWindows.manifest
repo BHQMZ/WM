@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2237901612
+CRC: 834813497
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: dialog/alert
+      Name: prefab/card
       Dependencies: {}
     Info_1:
-      Name: prefab/card
+      Name: dialog/alert
       Dependencies: {}
     Info_2:
       Name: dialog/showcarddialog

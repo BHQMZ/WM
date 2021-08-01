@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Station : MonoBehaviour
 {
     public Text textProfit = null;
-    public Text textAdd = null;
+    public GameObject textAdd = null;
+
+    public GameObject battery = null;
 
     public List<Transform> pieceTransforms = new List<Transform>();
 
@@ -39,13 +41,29 @@ public class Station : MonoBehaviour
     /// <summary>
     /// 是否运作
     /// </summary>
-    public bool isRun = false;
+    private bool _isRun = false;
+
+    public bool isRun
+    {
+        set
+        {
+            if (_isRun != value)
+            {
+                _isRun = value;
+
+                ChangeRunType();
+            }
+        }
+    }
 
     private List<Piece> pieces = new List<Piece>();
 
     void Start()
     {
         textProfit.rectTransform.position = Camera.main.WorldToScreenPoint(transform.position);
+
+        battery.SetActive(false);
+        textAdd.SetActive(false);
     }
 
     void Update()
@@ -55,7 +73,7 @@ public class Station : MonoBehaviour
 
     public void Init()
     {
-        isRun = false;
+        _isRun = false;
 
         profit = 1;
 
@@ -64,11 +82,13 @@ public class Station : MonoBehaviour
         _score = 0;
 
         pieces.Clear();
+
+        battery.SetActive(false);
     }
 
     public void Settlement()
     {
-        if (isRun)
+        if (_isRun)
         {
             if (profit > 0)
             {
@@ -79,7 +99,7 @@ public class Station : MonoBehaviour
 
     public bool IsAdd()
     {
-        return isRun && profit > 0;
+        return _isRun && profit > 0;
     }
 
     public void AddProfit()
@@ -128,18 +148,19 @@ public class Station : MonoBehaviour
 
     private void PlayAddAni(string add)
     {
-        textAdd.text = add;
+        //textAdd.text = add;
+        textAdd.SetActive(true);
 
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 pos = transform.position;
 
-        textAdd.rectTransform.position = pos;
+        textAdd.transform.position = pos;
 
-        pos.y += 60;
+        pos.y += 1;
 
         Hashtable args = new Hashtable();
 
         args.Add("position", pos);
-        args.Add("time", 0.5);
+        args.Add("time", 0.3);
         args.Add("oncomplete", "onTweenComplete");
         args.Add("oncompletetarget", gameObject);
 
@@ -148,6 +169,21 @@ public class Station : MonoBehaviour
 
     private void onTweenComplete()
     {
-        textAdd.text = "";
+        textAdd.SetActive(false);
+    }
+
+    private void ChangeRunType()
+    {
+        if (_isRun)
+        {
+            battery.SetActive(true);
+            SoundManager.Instance.PlayBGMSound("SFX_TrainTouch");
+            Debug.Log("接上");
+        }
+        else
+        {
+            battery.SetActive(false);
+            Debug.Log("断开");
+        }
     }
 }

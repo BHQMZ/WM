@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{255EFC91-C2C9-46F7-92DB-ED60B4EA184A}" SchemaVersion="103">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{255EFC91-C2C9-46F7-92DB-ED60B4EA184A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{255EFC91-C2C9-46F7-92DB-ED60B4EA184A}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="BGM&amp;AMB" ID="{4C6B0D91-203D-4D80-9905-AFD3BD889497}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Game_BGM" ID="{4E6F98B3-782E-4DFC-B6E5-54CB24317F0D}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AMB_Sea" ID="{44483427-A8F2-46CD-989E-618CA65EA848}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_BGM" ID="{50280127-7443-41DB-B434-C61CB5F3071B}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="BGM_LFP" ID="{91D0BA58-3120-4B59-ABBD-77325FDC5D4A}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="BGM_LFP_Reset" ID="{BC543F90-14DD-4A2F-ABBB-DD139988D0FA}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_AMB" ID="{DC8605D1-9CB0-45E4-8A7D-AAC6C6E3437E}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AMB_LFP" ID="{40BE5F6D-E14D-4BD1-9464-EB14A50BA716}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AMB_LFP_Reset" ID="{3223FA13-A4C9-4D63-8108-8456F77052B0}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="SFX" ID="{E366DD67-59AD-48BB-A7C2-8EDFBFB1ED18}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="SFX_GameWin_02" ID="{A540EBEC-EC46-407A-A615-7763CD2DE35F}" WorkUnitID="{49937D2B-B70C-4CB4-B2CD-AD5FA34BB71A}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_GameWin_01" ID="{3A52683F-AEAB-43DB-A24B-E35B73B4E662}" WorkUnitID="{49937D2B-B70C-4CB4-B2CD-AD5FA34BB71A}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_GameFail" ID="{1A74BC16-0136-444B-AE3F-79F6B5124248}" WorkUnitID="{49937D2B-B70C-4CB4-B2CD-AD5FA34BB71A}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

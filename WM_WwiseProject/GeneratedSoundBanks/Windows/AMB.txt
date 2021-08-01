@@ -1,0 +1,9 @@
+Event	ID	Name			Wwise Object Path	Notes
+	435770000	Stop_AMB			\Default Work Unit\AMB\AMB_Action\Stop_AMB	
+	1952940776	AMB_LFP_Reset			\Default Work Unit\AMB\AMB_Action\AMB_LFP_Reset	
+	3602804000	AMB_LFP			\Default Work Unit\AMB\AMB_Action\AMB_LFP	
+	3652298359	AMB_Sea			\Default Work Unit\AMB\AMB\AMB_Sea	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	783286907	AMB_Sea	Q:\CIGA\Client\Game Jame Project2\WM_WwiseProject\.cache\Windows\SFX\AMB_Sea_3D1D1BA5.wem		\Actor-Mixer Hierarchy\Default Work Unit\AMB\AMB_Sea		301224
+

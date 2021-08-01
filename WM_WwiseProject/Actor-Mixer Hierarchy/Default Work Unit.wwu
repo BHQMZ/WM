@@ -1,6 +1,609 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{49937D2B-B70C-4CB4-B2CD-AD5FA34BB71A}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{49937D2B-B70C-4CB4-B2CD-AD5FA34BB71A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{49937D2B-B70C-4CB4-B2CD-AD5FA34BB71A}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="SFX" ID="{9B31163F-43A7-4A73-850D-9155183F0960}" ShortID="554874799">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="SFX_GameAgain" ID="{CDA1F88D-CBEB-45AF-A477-E6FDB2C87266}" ShortID="690137549">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{6A9243B4-1224-45FF-B32B-069EB53ACE68}">
+									<Language>SFX</Language>
+									<AudioFile>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="827856512"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{6A9243B4-1224-45FF-B32B-069EB53ACE68}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_GameWin_01" ID="{3A52683F-AEAB-43DB-A24B-E35B73B4E662}" ShortID="267208073">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="victory_sound_01" ID="{B18B1F5D-A09F-4594-BF5F-FB3D9AAE99A6}">
+									<Language>SFX</Language>
+									<AudioFile>victory_sound_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="363634597"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="victory_sound_01" ID="{B18B1F5D-A09F-4594-BF5F-FB3D9AAE99A6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_GameFail" ID="{1A74BC16-0136-444B-AE3F-79F6B5124248}" ShortID="951853415">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Defeat_Sound_01" ID="{E8EC9B4D-286E-4DB9-952D-428AB73E7AA2}">
+									<Language>SFX</Language>
+									<AudioFile>Defeat_Sound_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="593567549"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Defeat_Sound_01" ID="{E8EC9B4D-286E-4DB9-952D-428AB73E7AA2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Start_Game" ID="{7773EA76-034F-4416-836B-00D09464CF59}" ShortID="307112046">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{6EC655A6-9072-4116-8EE8-79C23E44213C}">
+									<Language>SFX</Language>
+									<AudioFile>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="827856512"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{6EC655A6-9072-4116-8EE8-79C23E44213C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_GomeOver" ID="{F43FC79C-7DF9-4A36-A994-F096F8FAACAE}" ShortID="759572671">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_GameOver" ID="{39FF449E-E997-4AC1-86A3-EF6D7790ACE5}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_GameOver.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1042399153"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_GameOver" ID="{39FF449E-E997-4AC1-86A3-EF6D7790ACE5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Login" ID="{8B979724-2AA8-42AB-85D0-D6CC2D036AA3}" ShortID="1018229821">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PREL_SSFX_MUSICAL_PO01_218_L" ID="{F0B38527-B7C8-43A4-B107-B65599DB9A95}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0696202531645571"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.459493670886076"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="1.96329113924051"/>
+										<Property Name="TrimEnd" Type="Real64" Value="8.13164556962023"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>PREL_SSFX_MUSICAL_PO01.218.L.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="527378914"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="PREL_SSFX_MUSICAL_PO01_218_L" ID="{F0B38527-B7C8-43A4-B107-B65599DB9A95}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_TrainTouch" ID="{D2990D8D-B044-4F1B-A86F-5C0D0C383BEB}" ShortID="467358680">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_TrainTouch" ID="{AC379EDA-E785-4C49-AC83-977B615071D3}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_TrainTouch.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="790247076"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_TrainTouch" ID="{AC379EDA-E785-4C49-AC83-977B615071D3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Folder Name="None" ID="{E87E71E3-1A1B-4FE2-8D66-29DE3FA1E106}" ShortID="4094115">
+							<ChildrenList>
+								<Sound Name="SFX_Obtain" ID="{8F3A69F6-51A6-4A14-A0DC-5B66746BC831}" ShortID="724385362">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="19"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{DB019337-3F29-4268-80AA-BB56933BFDD8}">
+											<Language>SFX</Language>
+											<AudioFile>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="827856512"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{DB019337-3F29-4268-80AA-BB56933BFDD8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_Double" ID="{2018D7A6-43B1-45C6-9122-0BED488B4CD5}" ShortID="735210146">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="19"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{4DCD6CBE-D369-45D7-8F02-05C9F7B17316}">
+											<Language>SFX</Language>
+											<AudioFile>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="827856512"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{4DCD6CBE-D369-45D7-8F02-05C9F7B17316}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_SetChess" ID="{7DDC66C1-2D28-41CF-ACD6-A0265B070F32}" ShortID="83508246">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="19"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{EB375CDE-7205-467B-AC37-9047F3717722}">
+											<Language>SFX</Language>
+											<AudioFile>ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="827856512"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ESM_Game_Ballon_or_Bubble_Pop_2_Hybrid_Mobile_Collect_Cartoon_Comedy" ID="{EB375CDE-7205-467B-AC37-9047F3717722}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Sound Name="SFX_GameWin_02" ID="{A540EBEC-EC46-407A-A615-7763CD2DE35F}" ShortID="50046185">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Victory_Sound_02" ID="{D11CA3D9-62B5-44B0-9602-5D5B27E2BFD5}">
+									<Language>SFX</Language>
+									<AudioFile>Victory_Sound_02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="678192488"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Victory_Sound_02" ID="{D11CA3D9-62B5-44B0-9602-5D5B27E2BFD5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="SFX_TimeOut" ID="{BFBBD248-CBC2-414F-952F-708C13D3E316}" ShortID="139679253">
+							<PropertyList>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="SFX_TimeOut" ID="{EB7FC34F-7292-4A8B-8D20-76BF9FE7DB24}" ShortID="846449267">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="20"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_TimeOut1" ID="{4B953CB1-D8E4-404A-94E0-490D97571872}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_TimeOut1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="312155688"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_TimeOut1" ID="{4B953CB1-D8E4-404A-94E0-490D97571872}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_TimeOut_01" ID="{C21B06DF-F4C1-48C6-9039-CDEE592046C1}" ShortID="848612203">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="20"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_TimeOut1" ID="{C8345A82-A8A1-4D68-990C-BF986ECA32E7}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_TimeOut1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="312155688"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_TimeOut1" ID="{C8345A82-A8A1-4D68-990C-BF986ECA32E7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_TimeOut_02" ID="{2108F885-2DB2-4AB1-B380-711D4A8DC94E}" ShortID="308887196">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="20"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_TimeOut1" ID="{33C56121-288B-49B8-ACE2-08D878335B14}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_TimeOut1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="312155688"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_TimeOut1" ID="{33C56121-288B-49B8-ACE2-08D878335B14}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_TimeOut_03" ID="{A60D1218-C7C5-4DDF-9EBF-29061CF07C18}" ShortID="180154207">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="20"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_TimeOut1" ID="{5CA8F14F-0122-42B7-8F71-3F50F5B0F956}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_TimeOut1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="312155688"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_TimeOut1" ID="{5CA8F14F-0122-42B7-8F71-3F50F5B0F956}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_TimeOut_04" ID="{C54C3097-C647-4D9A-8DF3-5A884E32139C}" ShortID="623366333">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="20"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_TimeOut1" ID="{299EE353-3509-4037-8AC0-451ED425BFB3}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_TimeOut1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="312155688"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_TimeOut1" ID="{299EE353-3509-4037-8AC0-451ED425BFB3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_TimeOut_05" ID="{5C7416F8-148C-42F5-A8BD-949069BFE666}" ShortID="621802066">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="20"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_TimeOut1" ID="{97B158F9-3176-48DB-860D-57CBF3E88A87}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_TimeOut1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="312155688"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_TimeOut1" ID="{97B158F9-3176-48DB-860D-57CBF3E88A87}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+							<Playlist>
+								<ItemRef Name="SFX_TimeOut" ID="{EB7FC34F-7292-4A8B-8D20-76BF9FE7DB24}"/>
+								<ItemRef Name="SFX_TimeOut_01" ID="{C21B06DF-F4C1-48C6-9039-CDEE592046C1}"/>
+								<ItemRef Name="SFX_TimeOut_02" ID="{2108F885-2DB2-4AB1-B380-711D4A8DC94E}"/>
+								<ItemRef Name="SFX_TimeOut_03" ID="{A60D1218-C7C5-4DDF-9EBF-29061CF07C18}"/>
+								<ItemRef Name="SFX_TimeOut_04" ID="{C54C3097-C647-4D9A-8DF3-5A884E32139C}"/>
+								<ItemRef Name="SFX_TimeOut_05" ID="{5C7416F8-148C-42F5-A8BD-949069BFE666}"/>
+							</Playlist>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
+				<ActorMixer Name="AMB" ID="{24B07606-2F02-4DEA-82EE-19DEE1515189}" ShortID="169903091">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Vorbis Auto Detect High" ID="{6F6A99BE-4FD1-49D3-89AF-54BE30CA1588}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="AMB" ID="{EB1D7CF7-A79D-4563-A467-34FF133D9F85}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="AMB_Sea" ID="{87A76A7D-9243-4842-B357-5AC377FED915}" ShortID="651003535">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{25BD85E7-94C4-4F1F-9B9B-449F62160CCE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88FCE41B-6A78-4FA0-B2DA-6BA25C07515A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AMB_Sea" ID="{4853E3C0-539B-4E13-945B-234B516BD2D5}">
+									<Language>SFX</Language>
+									<AudioFile>AMB_Sea.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="783286907"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="AMB_Sea" ID="{4853E3C0-539B-4E13-945B-234B516BD2D5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

@@ -9,6 +9,37 @@
 							<ObjectRef Name="System" ID="{53C5FFB3-1DC7-4943-8E36-54B4ADE3C849}" WorkUnitID="{618C5BBF-EBDB-42F7-B547-646B0F8093A8}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="BGM" ID="{369D9B8E-C742-4375-8516-E4E80C94A0F2}">
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="SFX" ID="{19774E8B-A9A0-499E-8C22-58F310553C2A}">
+							<ObjectLists/>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="AMB" ID="{EB1D7CF7-A79D-4563-A467-34FF133D9F85}"/>
+									<DuckingParam>
+										<Volume>-6</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+								<DuckItem>
+									<BusRef Name="BGM" ID="{369D9B8E-C742-4375-8516-E4E80C94A0F2}"/>
+									<DuckingParam>
+										<Volume>-10</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
+						</Bus>
+						<Bus Name="AMB" ID="{EB1D7CF7-A79D-4563-A467-34FF133D9F85}">
+							<ObjectLists/>
+						</Bus>
+					</ChildrenList>
 					<ObjectLists/>
 				</Bus>
 			</ChildrenList>

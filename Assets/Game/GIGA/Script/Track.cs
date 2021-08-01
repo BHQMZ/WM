@@ -16,6 +16,8 @@ public class Track : MonoBehaviour
             _progress = value;
 
             UpdateProgress(value);
+
+            Activation(Mathf.Abs(value) >= 3);
         }
     }
 
@@ -31,11 +33,19 @@ public class Track : MonoBehaviour
 
     private void UpdateProgress(float progress)
     {
-        transform.position = new Vector3(progress * 1.22f / 3, transform.position.y, transform.position.z);
+        transform.position = new Vector3(progress * 0.62f / 3, transform.position.y, transform.position.z);
     }
 
     public void Init()
     {
         progress = 0;
+    }
+
+    private void Activation(bool isActivation)
+    {
+        if (isActivation)
+        {
+
+        }
     }
 }

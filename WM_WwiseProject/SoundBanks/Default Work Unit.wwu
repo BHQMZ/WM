@@ -3,9 +3,41 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{FF975069-37D4-48B5-B048-3DE91D4773BE}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="Test" ID="{68510EB8-9BE2-472D-A7FC-F95CD55822B6}">
+				<SoundBank Name="SFX" ID="{68510EB8-9BE2-472D-A7FC-F95CD55822B6}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_PREL_SSFX_MUSICAL_PO01_218_L" ID="{1414F948-511A-4DCB-B9A8-109708A4405E}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_LoginSFX" ID="{AB116357-CF49-41C6-81D2-19AB47A8A0EE}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Start_Game" ID="{ED919968-8A77-41D9-82BF-385AB54E986E}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_TimeOut" ID="{F69B2DDC-8E43-4505-A02C-9B47835D2858}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_Obtain" ID="{FD4D9B04-D3C0-451E-8517-23597A969AB8}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_GameFail" ID="{26C9EB03-3003-47BC-8225-2E220BE067B4}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_SetChess" ID="{27284B19-625B-494C-870C-2D575635286C}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_TrainTouch" ID="{ACF6D91C-14C9-4A80-9F83-C3744CD8E29E}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_GomeOver" ID="{80254B1B-898B-4AB9-BA83-E3DAFA0951C5}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_GameWin_02" ID="{BC9069AD-A76D-4B02-8838-4DCB31CA7145}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_GameAgain" ID="{255DA502-DC51-4E88-8BD5-E94A55D5203D}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_GameWin_01" ID="{79B2CB67-A4F1-4F08-BEFB-5F5BBDEBA2C8}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_Double" ID="{7C6A5CE6-BA1B-4FA1-8C20-A67CE47E0FFF}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_Login" ID="{ED55BEA2-DB71-4FC6-BEB0-CA3CCDDA971F}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BGM" ID="{650FB002-16C7-492F-A90F-C83622D51C98}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Stop_BGM" ID="{50280127-7443-41DB-B434-C61CB5F3071B}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BGM_LFP_Reset" ID="{BC543F90-14DD-4A2F-ABBB-DD139988D0FA}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BGM_LFP" ID="{91D0BA58-3120-4B59-ABBD-77325FDC5D4A}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Game_BGM" ID="{4E6F98B3-782E-4DFC-B6E5-54CB24317F0D}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="AMB" ID="{238B6097-F100-43A2-8CCD-2AA838D6BAF2}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Stop_AMB" ID="{DC8605D1-9CB0-45E4-8A7D-AAC6C6E3437E}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="AMB_Sea" ID="{44483427-A8F2-46CD-989E-618CA65EA848}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="AMB_LFP" ID="{40BE5F6D-E14D-4BD1-9464-EB14A50BA716}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="AMB_LFP_Reset" ID="{3223FA13-A4C9-4D63-8108-8456F77052B0}" WorkUnitID="{701CE35C-4372-488E-A341-63EFDC354452}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
